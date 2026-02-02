@@ -17,24 +17,24 @@ body,
 }
 
 body {
-  background: var(--gf-color-background, #050816);
+  background: var(--gf-color-background, #000000);
 }
 
 /* Theme: glass cards and sections */
-.cyan-theme aside,
-.cyan-theme [class*="card"] {
+.slam-theme aside,
+.slam-theme [class*="card"] {
   backdrop-filter: var(--gf-glass-blur, none);
   -webkit-backdrop-filter: var(--gf-glass-blur, none);
 }
 
-.cyan-theme button[style*="var(--gf-color-accent)"] {
-  color: var(--gf-color-button-text, #000000) !important;
+.slam-theme button[style*="var(--gf-color-accent)"] {
+  color: var(--gf-color-button-text, #ffffff) !important;
 }
 
-.cyan-theme button:hover,
-.cyan-theme select:hover {
+.slam-theme button:hover,
+.slam-theme select:hover {
   box-shadow: 0 0 20px var(--gf-accent-glow, transparent);
-  border-color: var(--gf-color-accent, #00f2ff);
+  border-color: var(--gf-color-accent, #e879f9);
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 

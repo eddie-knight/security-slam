@@ -10,7 +10,7 @@ export const BackgroundArcs: React.FC = () => {
         width: "100vw",
         height: "100vh",
         zIndex: -1,
-        background: "#051616",
+        background: "var(--gf-color-background, #000000)",
         pointerEvents: "none",
         overflow: "hidden"
       }}
@@ -39,7 +39,7 @@ export const BackgroundArcs: React.FC = () => {
           d="M-100,200 Q400,100 1100,500"
           className="arc arc-1"
           fill="none"
-          stroke="var(--gf-color-accent, #00f2ff)"
+          stroke="var(--gf-color-accent, #e879f9)"
           strokeWidth="2"
           filter="url(#arc-glow)"
           opacity="0.5"
@@ -48,7 +48,7 @@ export const BackgroundArcs: React.FC = () => {
           d="M-100,800 Q500,400 1100,900"
           className="arc arc-2"
           fill="none"
-          stroke="var(--gf-color-accent, #00f2ff)"
+          stroke="var(--gf-color-accent, #e879f9)"
           strokeWidth="2"
           filter="url(#arc-glow)"
           opacity="0.3"
@@ -57,7 +57,7 @@ export const BackgroundArcs: React.FC = () => {
           d="M200,-100 Q800,500 200,1100"
           className="arc arc-3"
           fill="none"
-          stroke="var(--gf-color-accent, #00f2ff)"
+          stroke="var(--gf-color-accent, #e879f9)"
           strokeWidth="2"
           filter="url(#arc-glow)"
           opacity="0.2"
