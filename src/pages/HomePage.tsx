@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { TextSection } from "../components/TextSection";
 import { SectionCard } from "../components/SectionCard";
+import { Carousel } from "../components/Carousel";
 import { siteConfig } from "../config/site";
 import { blogPosts } from "../content/blog";
+import { carouselImages } from "../content/carousel";
 
 export const HomePage: React.FC = () => {
   return (
@@ -14,17 +16,30 @@ export const HomePage: React.FC = () => {
         width: "100%"
       }}
     >
-      <TextSection
-        title="Welcome"
-        paragraphs={[
-          "Security Slam helps projects understand and improve their security posture.",
-          "Run by the CNCF Technical Advisory Group for Security & Compliance, the Slam is a month-long community effort with a library of support resources, advisors on Slack, and plaques and badges for participating projects and contributors.",
-          "Explore Slam26 for the 2026 event details, browse the Slam Library for guides and how-tos, and check the blog for announcements."
-        ]}
-        centered={true}
-        maxWidth="700px"
-        lastParagraphMargin="var(--gf-space-xl)"
-      />
+      <div className="home-welcome-row">
+        {carouselImages.length > 0 && (
+          <div className="home-welcome-carousel">
+            <Carousel
+              images={carouselImages}
+              autoAdvanceMs={5000}
+              ariaLabel="Slam photos"
+            />
+          </div>
+        )}
+        <div className="home-welcome-text">
+          <TextSection
+            title="Welcome"
+            paragraphs={[
+              "Security Slam helps projects understand and improve their security posture.",
+              "Run by the CNCF Technical Advisory Group for Security & Compliance, the Slam is a month-long community effort with a library of support resources, advisors on Slack, and plaques and badges for participating projects and contributors.",
+              "Explore Slam26 for the 2026 event details, browse the Slam Library for guides and how-tos, and check the blog for announcements."
+            ]}
+            centered={false}
+            maxWidth="700px"
+            lastParagraphMargin="var(--gf-space-xl)"
+          />
+        </div>
+      </div>
 
       <div
         style={{
