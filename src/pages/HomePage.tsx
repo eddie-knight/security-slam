@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { TextSection } from "../components/TextSection";
 import { SectionCard } from "../components/SectionCard";
 import { Carousel } from "../components/Carousel";
+import { LinkCard } from "../components/LinkCard";
 import { siteConfig } from "../config/site";
 import { blogPosts } from "../content/blog";
 import { carouselImages } from "../content/carousel";
@@ -28,7 +29,7 @@ export const HomePage: React.FC = () => {
         )}
         <div className="home-welcome-text">
           <TextSection
-            title="Welcome"
+            title="Improving Open Source Security at the Source"
             paragraphs={[
               "Security Slam helps projects understand and improve their security posture.",
               "Run by the CNCF Technical Advisory Group for Security & Compliance, the Slam is a month-long community effort with a library of support resources, advisors on Slack, and plaques and badges for participating projects and contributors.",
@@ -41,71 +42,9 @@ export const HomePage: React.FC = () => {
         </div>
       </div>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "var(--gf-space-lg)",
-          marginBottom: "var(--gf-space-xl)"
-        }}
-      >
-        <SectionCard
-          title="Slam26"
-          description="The 2026 event at KubeCon + CloudNativeCon Europe. Dates, format, and how to participate."
-        >
-          <Link
-            to="/slam26"
-            style={{
-              color: "var(--gf-color-accent)",
-              textDecoration: "none",
-              marginTop: "var(--gf-space-md)",
-              display: "inline-block"
-            }}
-          >
-            Read more →
-          </Link>
-        </SectionCard>
-        {siteConfig.library.enabled && (
-          <SectionCard
-            title="Slam Library"
-            description="Support resources to accelerate security hygiene goals."
-          >
-            <Link
-              to="/library"
-              style={{
-                color: "var(--gf-color-accent)",
-                textDecoration: "none",
-                marginTop: "var(--gf-space-md)",
-                display: "inline-block"
-              }}
-            >
-              Browse library →
-            </Link>
-          </SectionCard>
-        )}
-        {siteConfig.blog.enabled && (
-          <SectionCard
-            title="Blog"
-            description="Announcements and updates about the Security Slam."
-          >
-            <Link
-              to="/blog"
-              style={{
-                color: "var(--gf-color-accent)",
-                textDecoration: "none",
-                marginTop: "var(--gf-space-md)",
-                display: "inline-block"
-              }}
-            >
-              View blog →
-            </Link>
-          </SectionCard>
-        )}
-      </div>
-
-      {siteConfig.blog.enabled && blogPosts.length > 0 && (
+      {siteConfig.pastSlamReports.length > 0 && (
         <section style={{ marginBottom: "var(--gf-space-xl)" }}>
-          <h2 style={{ marginBottom: "var(--gf-space-md)" }}>Latest from the blog</h2>
+          <h2 style={{ marginBottom: "var(--gf-space-md)" }}>Past Slam reports</h2>
           <p
             style={{
               color: "var(--gf-color-text-subtle)",
@@ -114,34 +53,22 @@ export const HomePage: React.FC = () => {
               maxWidth: "700px"
             }}
           >
-            Announcements and updates.
+            Transparency reports from previous Security Slam events on the CNCF site.
           </p>
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
               gap: "var(--gf-space-lg)"
             }}
           >
-            {blogPosts.slice(0, 3).map((post) => (
-              <Link
-                key={post.slug}
-                to={`/blog/${post.slug}`}
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <SectionCard title={post.title} description={post.excerpt}>
-                  <p
-                    style={{
-                      color: "var(--gf-color-text-subtle)",
-                      fontSize: "0.9rem",
-                      marginTop: "var(--gf-space-md)",
-                      marginBottom: 0
-                    }}
-                  >
-                    {post.date}
-                  </p>
-                </SectionCard>
-              </Link>
+            {siteConfig.pastSlamReports.map((report) => (
+              <LinkCard
+                key={report.href}
+                title={report.label}
+                description={report.description ?? "Read the transparency report on the CNCF site."}
+                href={report.href}
+              />
             ))}
           </div>
         </section>

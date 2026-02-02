@@ -41,6 +41,12 @@ export type ArticleConfig = {
   body: string;
 };
 
+export type PastSlamReport = {
+  href: string;
+  label: string;
+  description?: string;
+};
+
 export type SiteConfig = {
   siteName: string;
   tagline: string;
@@ -54,6 +60,7 @@ export type SiteConfig = {
   library: LibraryConfig;
   articles: ArticleConfig[];
   contactPages: ContactPageConfig[];
+  pastSlamReports: PastSlamReport[];
 };
 
 export const siteConfig: SiteConfig = {
@@ -84,7 +91,7 @@ export const siteConfig: SiteConfig = {
   },
 
   blog: {
-    enabled: true
+    enabled: false
   },
 
   articles: [
@@ -106,5 +113,12 @@ export const siteConfig: SiteConfig = {
         region: "na1"
       }
     }
+  ],
+
+  pastSlamReports: [
+    { href: "https://www.cncf.io/reports/security-slam-2023/", label: "Security Slam 2023" },
+    { href: "https://www.cncf.io/reports/lightning-round-at-security-slam-2023/", label: "Lightning Round at Security Slam 2023" },
+    { href: "https://www.cncf.io/reports/security-slam-north-america-2022/", label: "Security Slam North America 2022" },
+    { href: "https://www.cncf.io/reports/security-slam-2025/", label: "Security Slam 2025" }
   ]
 };
