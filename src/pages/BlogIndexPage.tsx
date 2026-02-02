@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { SectionCard } from "../components/SectionCard";
-import { siteConfig } from "../config/site";
+import { blogPosts } from "../content/blog";
 
 export const BlogIndexPage: React.FC = () => {
-  const posts = siteConfig.blog.posts;
+  const posts = blogPosts;
 
   return (
     <div
@@ -33,7 +33,7 @@ export const BlogIndexPage: React.FC = () => {
           lineHeight: 1.6
         }}
       >
-        All posts. Edit <code>src/config/site.ts</code> to add or change posts.
+        All posts. Add markdown files under <code>src/content/blog/</code> to add or change posts.
       </p>
 
       <div

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { TextSection } from "../components/TextSection";
 import { SectionCard } from "../components/SectionCard";
 import { siteConfig } from "../config/site";
+import { blogPosts } from "../content/blog";
 
 export const HomePage: React.FC = () => {
   return (
@@ -15,29 +16,61 @@ export const HomePage: React.FC = () => {
     >
       <TextSection
         title="Welcome"
-        subtitle="A config-driven website template"
         paragraphs={[
-          "This front page is built from placeholder content. Edit the home sections in the code or add a home sections array to site config to drive it from config."
+          "Security Slam helps projects understand and improve their security posture."
         ]}
         centered={true}
-        textShadow={true}
-        maxWidth="900px"
+        maxWidth="700px"
         lastParagraphMargin="var(--gf-space-xl)"
       />
 
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
           gap: "var(--gf-space-lg)",
           marginBottom: "var(--gf-space-xl)"
         }}
       >
         <SectionCard
-          title="Blog"
-          description="Template includes a blog index and individual post pages. Add or edit posts in src/config/site.ts."
+          title="Slam26"
+          description="The 2026 event at KubeCon + CloudNativeCon Europe. Dates, format, and how to participate."
         >
-          {siteConfig.blog.enabled && (
+          <Link
+            to="/slam26"
+            style={{
+              color: "var(--gf-color-accent)",
+              textDecoration: "none",
+              marginTop: "var(--gf-space-md)",
+              display: "inline-block"
+            }}
+          >
+            Read more →
+          </Link>
+        </SectionCard>
+        {siteConfig.library.enabled && (
+          <SectionCard
+            title="Slam Library"
+            description="Support resources to accelerate security hygiene goals."
+          >
+            <Link
+              to="/library"
+              style={{
+                color: "var(--gf-color-accent)",
+                textDecoration: "none",
+                marginTop: "var(--gf-space-md)",
+                display: "inline-block"
+              }}
+            >
+              Browse library →
+            </Link>
+          </SectionCard>
+        )}
+        {siteConfig.blog.enabled && (
+          <SectionCard
+            title="Blog"
+            description="Announcements and updates about the Security Slam."
+          >
             <Link
               to="/blog"
               style={{
@@ -49,68 +82,12 @@ export const HomePage: React.FC = () => {
             >
               View blog →
             </Link>
-          )}
-        </SectionCard>
-        <SectionCard
-          title="Slam Library"
-          description="Support resources organized by topic. Guides, references, and how-tos."
-        >
-          <Link
-            to="/library"
-            style={{
-              color: "var(--gf-color-accent)",
-              textDecoration: "none",
-              marginTop: "var(--gf-space-md)",
-              display: "inline-block"
-            }}
-          >
-            Browse library →
-          </Link>
-        </SectionCard>
-        <SectionCard
-          title="Articles"
-          description="Secondary (non-blog) pages like About or Terms. Configure paths and content in site config."
-        >
-          {siteConfig.articles.length > 0 && (
-            <Link
-              to={siteConfig.articles[0].path}
-              style={{
-                color: "var(--gf-color-accent)",
-                textDecoration: "none",
-                marginTop: "var(--gf-space-md)",
-                display: "inline-block"
-              }}
-            >
-              Read more →
-            </Link>
-          )}
-        </SectionCard>
-        <SectionCard
-          title="Contact"
-          description="One or more contact pages with HubSpot forms. Set portal and form IDs in site config."
-        >
-          {siteConfig.contactPages.length > 0 && (
-            <Link
-              to={siteConfig.contactPages[0].path}
-              style={{
-                color: "var(--gf-color-accent)",
-                textDecoration: "none",
-                marginTop: "var(--gf-space-md)",
-                display: "inline-block"
-              }}
-            >
-              Get in touch →
-            </Link>
-          )}
-        </SectionCard>
+          </SectionCard>
+        )}
       </div>
 
-      {siteConfig.blog.enabled && siteConfig.blog.posts.length > 0 && (
-        <section
-          style={{
-            marginBottom: "var(--gf-space-xl)"
-          }}
-        >
+      {siteConfig.blog.enabled && blogPosts.length > 0 && (
+        <section style={{ marginBottom: "var(--gf-space-xl)" }}>
           <h2 style={{ marginBottom: "var(--gf-space-md)" }}>Latest from the blog</h2>
           <p
             style={{
@@ -120,7 +97,7 @@ export const HomePage: React.FC = () => {
               maxWidth: "700px"
             }}
           >
-            Recent posts and updates.
+            Announcements and updates.
           </p>
           <div
             style={{
@@ -129,14 +106,11 @@ export const HomePage: React.FC = () => {
               gap: "var(--gf-space-lg)"
             }}
           >
-            {siteConfig.blog.posts.slice(0, 3).map((post) => (
+            {blogPosts.slice(0, 3).map((post) => (
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                style={{
-                  textDecoration: "none",
-                  color: "inherit"
-                }}
+                style={{ textDecoration: "none", color: "inherit" }}
               >
                 <SectionCard title={post.title} description={post.excerpt}>
                   <p
@@ -155,34 +129,6 @@ export const HomePage: React.FC = () => {
           </div>
         </section>
       )}
-
-      <section
-        style={{
-          padding: "var(--gf-space-xl)",
-          backgroundColor: "var(--gf-color-surface)",
-          borderRadius: "var(--gf-radius-xl)",
-          boxShadow: "var(--gf-shadow-surface)",
-          backdropFilter: "var(--gf-glass-blur)",
-          WebkitBackdropFilter: "var(--gf-glass-blur)",
-          border: "1px solid var(--gf-color-border-strong)",
-          textAlign: "center"
-        }}
-      >
-        <h2>Customize everything</h2>
-        <p
-          style={{
-            color: "var(--gf-color-text)",
-            lineHeight: 1.8,
-            fontSize: "1.25rem",
-            maxWidth: "700px",
-            margin: "0 auto var(--gf-space-lg)"
-          }}
-        >
-          Change site name, tagline, nav, footer, blog posts, articles, and
-          contact forms in <code>src/config/site.ts</code>. Adjust colors and
-          spacing in <code>src/theme.tsx</code> and <code>src/global.css</code>.
-        </p>
-      </section>
     </div>
   );
 };

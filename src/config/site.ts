@@ -27,17 +27,12 @@ export type ContactPageConfig = {
   hubspot?: HubSpotConfig;
 };
 
-export type BlogPost = {
-  slug: string;
-  title: string;
-  date: string;
-  excerpt: string;
-  body: string;
-};
-
 export type BlogConfig = {
   enabled: boolean;
-  posts: BlogPost[];
+};
+
+export type LibraryConfig = {
+  enabled: boolean;
 };
 
 export type ArticleConfig = {
@@ -49,61 +44,54 @@ export type ArticleConfig = {
 export type SiteConfig = {
   siteName: string;
   tagline: string;
+  preregistrationUrl?: string;
   nav: NavItem[];
   footer: {
     copyrightText: string;
     links: FooterLink[];
   };
   blog: BlogConfig;
+  library: LibraryConfig;
   articles: ArticleConfig[];
   contactPages: ContactPageConfig[];
 };
 
 export const siteConfig: SiteConfig = {
-  siteName: "Site Name",
-  tagline: "Your tagline here",
+  siteName: "Security Slam",
+  tagline: "February 20 – March 20, 2026",
+  preregistrationUrl: "",
 
   nav: [
     { path: "/", label: "Home" },
     { path: "/blog", label: "Blog" },
     { path: "/library", label: "Slam Library" },
-    { path: "/about", label: "About" },
-    { path: "/contact", label: "Contact" }
+    { path: "/slam26", label: "Slam26" }
   ],
 
+  library: {
+    enabled: true
+  },
+
   footer: {
-    copyrightText: `© ${new Date().getFullYear()} Site Name. All rights reserved.`,
+    copyrightText: "",
     links: [
-      { href: "https://github.com", label: "GitHub" },
-      { href: "https://linkedin.com", label: "LinkedIn" }
+      { href: "https://github.com/cncf/tag-security", label: "CNCF TAG Security" },
+      { href: "https://openssf.org", label: "OpenSSF" },
+      { href: "https://sonatype.com", label: "Sonatype" },
+      { href: "https://ostif.org", label: "OSTIF" },
+      { href: "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/", label: "KubeCon Europe" }
     ]
   },
 
   blog: {
-    enabled: true,
-    posts: [
-      {
-        slug: "welcome",
-        title: "Welcome to the template",
-        date: "2025-01-15",
-        excerpt: "A short introduction to this website template and how to customize it.",
-        body: "<p>This is a placeholder blog post. Edit <code>src/config/site.ts</code> to add your own posts. Each post has a slug, title, date, excerpt, and body (plain text or HTML).</p><p>You can later switch to markdown by adding a loader (e.g. vite-plugin-md or react-markdown) and sourcing blog content from files.</p>"
-      },
-      {
-        slug: "getting-started",
-        title: "Getting started",
-        date: "2025-01-10",
-        excerpt: "Quick steps to run and customize the template.",
-        body: "<p>Run <code>npm install</code> and <code>npm run dev</code> to start the dev server. Change the site name, tagline, nav, and content in <code>src/config/site.ts</code>. Customize colors and spacing in <code>src/theme.tsx</code> and <code>src/global.css</code>.</p>"
-      }
-    ]
+    enabled: true
   },
 
   articles: [
     {
-      path: "/about",
-      title: "About",
-      body: "<p>This is a placeholder about page. Edit the <code>articles</code> array in <code>src/config/site.ts</code> to add or change secondary (non-blog) article content. Use the same structure for pages like Terms, Privacy, or any static content.</p>"
+      path: "/slam26",
+      title: "Security Slam 2026",
+      body: "<p>The Security Slam is a CNCF community activity run by the Technical Advisory Group for Security & Compliance. Now in its fifth iteration, the Slam helps projects understand and improve their high-level security posture.</p><p>\"Security hygiene is something every project should do—and every project can do it with a bit of guidance. It's everyday stuff, like the equivalent of brushing your teeth. After you learn it once, you can easily do it every day.\" — Christopher \"CRob\" Robinson, OpenSSF CTO & Chief Architect</p><h2>Key dates</h2><ul><li><strong>Friday, February 20, 2026</strong> — Event objectives announced; Slam Library opens</li><li><strong>Friday, March 20, 2026</strong> — Final scoring submissions close; scoring begins</li><li><strong>Thursday, March 26, 2026</strong> — Awards on the KubeCon Project Pavilion Stage</li></ul><h2>2026 format</h2><p>The 2026 event runs approximately one month (February 20 – March 20), leading up to KubeCon + CloudNativeCon Europe. Key elements:</p><ul><li><strong>Slam Library</strong> — A library of support resources (hosted on this site) to accelerate execution of the more complex goals</li><li><strong>Advisors</strong> — Available via a dedicated CNCF Slack channel all month for clarifications and questions on security hygiene</li><li><strong>Plaques & badges</strong> — Participating projects receive custom plaques; individual contributors receive badges corresponding to the project's completed goals</li><li><strong>Cyber Resilience Act (CRA)</strong> — Advisors and material will be available on CRA this year</li></ul><h2>Who can participate</h2><p>Previously restricted to CNCF projects, the Slam now uses the LFX Insights dashboard: if your project is published to LFX Insights by the closing date, you qualify. Projects from outside the CNCF and Linux Foundation are invited to participate.</p><h2>Partners</h2><p>The 2026 Security Slam is in partnership with Sonatype, OpenSSF, and OSTIF.</p><h2>History</h2><p>Past events have included incentives such as Google's 2022 donations for milestone-reaching projects or the 2025 LEGO prizes for top contributors. The 2023 event gave projects iron-on badges and framed plaques; that format had the most statistically significant results and inspired this year's structure. Maintainers have reported real wins—for example, work done during a prior Slam (pinning workflow versions) paid off when a GitHub action was later compromised.</p><p>Explore the <a href=\"/library\">Slam Library</a> for support resources. Pre-register to receive reminders and instructions for the 2026 event.</p>"
     }
   ],
 

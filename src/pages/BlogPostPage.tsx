@@ -1,12 +1,12 @@
 import React from "react";
 import { useParams, Navigate } from "react-router-dom";
-import { siteConfig } from "../config/site";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { getBlogPost } from "../content/blog";
 
 export const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const post = slug
-    ? siteConfig.blog.posts.find((p) => p.slug === slug)
-    : undefined;
+  const post = slug ? getBlogPost(slug) : undefined;
 
   if (!post) {
     return <Navigate to="/blog" replace />;
@@ -48,8 +48,9 @@ export const BlogPostPage: React.FC = () => {
           lineHeight: 1.8,
           fontSize: "1.25rem"
         }}
-        dangerouslySetInnerHTML={{ __html: post.body }}
-      />
+      >
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.body}</ReactMarkdown>
+      </div>
     </article>
   );
 };
