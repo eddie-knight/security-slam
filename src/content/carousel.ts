@@ -1,17 +1,13 @@
-const imageModules = import.meta.glob("../public/slam-photos/*", {
-  eager: true,
-  import: "default"
-});
+// Public assets are served at root; use /slam-photos/ paths (see vite publicDir)
+const carouselImageNames = [
+  "argoproj-maintainers.avif",
+  "artifact-hub-maintainers.avif",
+  "flux-maintainers.png",
+  "meshery-maintainers.png",
+  "openfga-maintainers.avif",
+  "oscal-compass-maintainers.jpg"
+];
 
-function getUrl(value: unknown): string | null {
-  if (typeof value === "string") return value;
-  if (value && typeof value === "object" && "default" in value) return String((value as { default: string }).default);
-  return null;
-}
-
-const entries = Object.entries(imageModules)
-  .sort(([a], [b]) => a.localeCompare(b))
-  .map(([, mod]) => getUrl(mod))
-  .filter((url): url is string => url != null);
-
-export const carouselImages: string[] = entries;
+export const carouselImages: string[] = carouselImageNames.map(
+  (name) => `/slam-photos/${name}`
+);

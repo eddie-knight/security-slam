@@ -1,8 +1,10 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { siteConfig } from "../config/site";
-import logoColorUrl from "../public/logo/logo-color.png";
-import tagScLogoUrl from "../public/logo/tag_sc_logo-color.png";
+
+// Public assets are served at root (see vite publicDir)
+const logoColorUrl = "/logo/logo-color.png";
+const tagScLogoUrl = "/logo/tag_sc_logo-color.png";
 
 export const Header: React.FC = () => {
   const location = useLocation();
