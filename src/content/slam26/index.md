@@ -4,7 +4,7 @@ path: "/slam26"
 description: "A 30-day event beginning on Feb 20th, leading up to an awards ceremony at KCCN Europe"
 ---
 
-The *CNCF Technical Advisory Group for Security & Compliance* is excited to announce the upcoming 2026 Security Slam at KubeCon \+ CloudNativeCon Europe, in partnership with Sonatype, OpenSSF, and OSTIF.
+The *CNCF Technical Advisory Group for Security & Compliance* is excited to announce the upcoming 2026 Security Slam at KubeCon \+ CloudNativeCon Europe, in partnership with Sonatype and OpenSSF.
 
 The event will run from ***Friday, February 20th*** until ***Friday, March 20th***.
 
@@ -48,4 +48,4 @@ Key Dates to Remember:
 * **Friday, March 20th:** Final scoring submissions closes; Scoring begins  
 * **Thursday, March 26th:** Awards are issued on the KubeCon Project Pavillion Stage
 
-[Registration](http://securityslam.com/register) is now open: Sign up to receive reminders and instructions related to the event!
+[Registration](http://securityslam.com/slam26/register) is now open: Sign up to receive reminders and instructions related to the event!

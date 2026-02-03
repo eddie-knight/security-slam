@@ -31,12 +31,38 @@ export const HomePage: React.FC = () => {
             title="Improving Open Source Security at the Source"
             paragraphs={[
               "Run by the CNCF Technical Advisory Group for Security & Compliance, the Slam is a month-long community effort with a library of support resources, advisors on Slack, and plaques and badges for participating projects and contributors.",
-              "Explore Slam26 for the 2026 event details, browse the Slam Library for guides and how-tos, and check the blog for announcements."
+               "The Slam Library will soon be available with the most up-to-date guides and resources. Register now to recieve updates as the event draws nearer!"
             ]}
             centered={false}
             maxWidth="700px"
             lastParagraphMargin="var(--gf-space-xl)"
           />
+          <div style={{ marginTop: "var(--gf-space-lg)", textAlign: "center" }}>
+          <Link
+            to="/slam26/register"
+            style={{
+              display: "inline-block",
+              padding: "var(--gf-space-md) var(--gf-space-xl)",
+              background: "linear-gradient(135deg, #5ce0e8 0%, #29bfc7 50%, #159aa1 100%)",
+              color: "#fff",
+              fontWeight: 600,
+              textDecoration: "none",
+              borderRadius: "var(--gf-radius-lg)",
+              boxShadow: "var(--gf-shadow-surface)",
+              transition: "filter 0.2s, transform 0.2s"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.filter = "brightness(1.1)";
+              e.currentTarget.style.transform = "translateY(-1px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.filter = "none";
+              e.currentTarget.style.transform = "none";
+            }}
+          >
+            Register now
+          </Link>
+          </div>
         </div>
       </div>
 

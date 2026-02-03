@@ -65,16 +65,24 @@ export const Header: React.FC = () => {
               flexWrap: "wrap"
             }}
           >
-            <img
-              src={tagScLogoUrl}
-              alt="CNCF TAG Security & Compliance"
-              style={{
-                maxHeight: "80px",
-                width: "auto",
-                objectFit: "contain",
-                display: "block"
-              }}
-            />
+            <a
+              href="https://contribute.cncf.io/community/tags/security-and-compliance/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "block" }}
+              aria-label="CNCF TAG Security & Compliance"
+            >
+              <img
+                src={tagScLogoUrl}
+                alt="CNCF TAG Security & Compliance"
+                style={{
+                  maxHeight: "80px",
+                  width: "auto",
+                  objectFit: "contain",
+                  display: "block"
+                }}
+              />
+            </a>
             <Link
               to="/"
               style={{ display: "block" }}
