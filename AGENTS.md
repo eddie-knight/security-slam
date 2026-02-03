@@ -46,7 +46,7 @@ Config-driven React + Vite + TypeScript website with a front page, blog, seconda
 
 | Path | Intent |
 |------|--------|
-| **`site.ts`** | **Single source of truth** for site content and structure: types (`NavItem`, `FooterLink`, `HubSpotConfig`, `ContactPageConfig`, `BlogPost`, `BlogConfig`, `ArticleConfig`, `SiteConfig`) and exported `siteConfig` (siteName, tagline, nav, footer, blog, articles, contactPages). Edit this file to change identity, navigation, footer, blog posts, static articles, and contact pages/forms without touching component logic. |
+| **`site.ts`** | **Single source of truth** for site content and structure: types (`FooterLink`, `HubSpotConfig`, `ContactPageConfig`, `BlogConfig`, `ContentSectionConfig`, `SiteConfig`) and exported `siteConfig` (siteName, tagline, footer, blog, contentSections, contactPages). Header nav is derived from a fixed Home link plus enabled content sections (inNav). Edit this file to change identity, footer, content sections, and contact pages/forms without touching component logic. |
 
 ---
 
@@ -54,7 +54,7 @@ Config-driven React + Vite + TypeScript website with a front page, blog, seconda
 
 | Path | Intent |
 |------|--------|
-| **`Header.tsx`** | Site header: hero with site name and tagline from config, nav links from `siteConfig.nav` with active-state styling via `useLocation()`. |
+| **`Header.tsx`** | Site header: hero with site name and tagline from config, nav links from a fixed Home link plus `siteConfig.contentSections` (enabled, inNav) with active-state styling via `useLocation()`. |
 | **`Footer.tsx`** | Site footer: copyright and links from `siteConfig.footer`. |
 | **`BackgroundArcs.tsx`** | Full-viewport decorative background (fixed SVG arcs); no interaction, low z-index. |
 | **`TextSection.tsx`** | Reusable content block: title, subtitle, list of paragraphs; props for centering, text shadow, max width, last paragraph margin. Used on home and elsewhere. |
@@ -77,7 +77,7 @@ Config-driven React + Vite + TypeScript website with a front page, blog, seconda
 
 ## Conventions for agents
 
-- **Content and structure**: Prefer changing **`src/config/site.ts`** for nav, footer, blog posts, articles, and contact pages. Avoid hardcoding the same in components unless adding a net-new concept.
+- **Content and structure**: Prefer changing **`src/config/site.ts`** for footer, content sections, and contact pages. Header nav is controlled by content sections (enabled, inNav); add or adjust content sections in site config to change nav. Avoid hardcoding the same in components unless adding a net-new concept.
 - **Styling**: Use theme variables from **`theme.tsx`** (e.g. `var(--gf-color-accent)`) and global rules in **`global.css`**. New components should rely on these rather than ad-hoc colors/spacing.
-- **Routes**: New routes require both a `Route` in **`App.tsx`** and corresponding config (e.g. `articles`, `contactPages`) plus optional `nav` entry.
+- **Routes**: New routes require both a `Route` in **`App.tsx`** and corresponding config (e.g. `contentSections`, `contactPages`).
 - **Build/deploy**: `npm run build` → `dist/`. For GitHub Pages project sites, set `base` in **`vite.config.ts`** and follow **DEPLOY.md** (including 404 handling; the workflow already copies `index.html` to `404.html`).

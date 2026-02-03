@@ -4,14 +4,12 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { BackgroundArcs } from "./components/BackgroundArcs";
 import { HomePage } from "./pages/HomePage";
-import { BlogIndexPage } from "./pages/BlogIndexPage";
-import { BlogPostPage } from "./pages/BlogPostPage";
-import { ArticlePage } from "./pages/ArticlePage";
 import { ContactPage } from "./pages/ContactPage";
-import { LibraryPage } from "./pages/LibraryPage";
-import { LibraryArticlePage } from "./pages/LibraryArticlePage";
+import { SectionIndexPage } from "./pages/SectionIndexPage";
+import { SectionItemPage } from "./pages/SectionItemPage";
 import { useTheme } from "./theme";
 import { siteConfig } from "./config/site";
+import { getSectionItems } from "./content/sections";
 
 export const App: React.FC = () => {
   useTheme();
@@ -42,19 +40,35 @@ export const App: React.FC = () => {
         >
           <Routes>
             <Route path="/" element={<HomePage />} />
-            {siteConfig.blog.enabled && (
-              <>
-                <Route path="/blog" element={<BlogIndexPage />} />
-                <Route path="/blog/:slug" element={<BlogPostPage />} />
-              </>
+            {Object.entries(siteConfig.contentSections).map(
+              ([section, config]) =>
+                config.enabled && (
+                  <React.Fragment key={section}>
+                    <Route
+                      path={`/${section}`}
+                      element={<SectionIndexPage section={section} />}
+                    />
+                    {getSectionItems(section)
+                      .filter((item) => item.path)
+                      .map((item) => (
+                        <Route
+                          key={item.path}
+                          path={item.path}
+                          element={
+                            <SectionItemPage
+                              section={section}
+                              path={item.path}
+                            />
+                          }
+                        />
+                      ))}
+                    <Route
+                      path={`/${section}/:slug`}
+                      element={<SectionItemPage section={section} />}
+                    />
+                  </React.Fragment>
+                )
             )}
-            {siteConfig.articles.map((article) => (
-              <Route
-                key={article.path}
-                path={article.path}
-                element={<ArticlePage />}
-              />
-            ))}
             {siteConfig.contactPages.map((contact) => (
               <Route
                 key={contact.path}
@@ -62,12 +76,6 @@ export const App: React.FC = () => {
                 element={<ContactPage />}
               />
             ))}
-            {siteConfig.library.enabled && (
-              <>
-                <Route path="/library" element={<LibraryPage />} />
-                <Route path="/library/:slug" element={<LibraryArticlePage />} />
-              </>
-            )}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

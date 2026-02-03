@@ -5,7 +5,6 @@ import { SectionCard } from "../components/SectionCard";
 import { Carousel } from "../components/Carousel";
 import { LinkCard } from "../components/LinkCard";
 import { siteConfig } from "../config/site";
-import { blogPosts } from "../content/blog";
 import { carouselImages } from "../content/carousel";
 
 export const HomePage: React.FC = () => {

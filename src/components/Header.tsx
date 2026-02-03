@@ -6,6 +6,14 @@ import logoColorUrl from "../public/logo/logo-color.png";
 export const Header: React.FC = () => {
   const location = useLocation();
 
+  const contentSectionNav = Object.entries(siteConfig.contentSections)
+    .filter(([, config]) => config.enabled && config.inNav !== false)
+    .map(([section, config]) => ({
+      path: `/${section}`,
+      label: config.label ?? section
+    }));
+  const fullNav = [{ path: "/", label: "Home" }, ...contentSectionNav];
+
   const linkStyle = (path: string): React.CSSProperties => ({
     color: "var(--gf-color-text)",
     textDecoration: "none",
@@ -81,13 +89,7 @@ export const Header: React.FC = () => {
             justifyContent: "center"
           }}
         >
-          {siteConfig.nav
-            .filter(
-              (item) =>
-                (item.path !== "/blog" || siteConfig.blog.enabled) &&
-                (item.path !== "/library" || siteConfig.library.enabled)
-            )
-            .map((item) => (
+          {fullNav.map((item) => (
             <Link
               key={item.path}
               to={item.path}
