@@ -241,6 +241,35 @@ h3 {
   padding: 0;
   background: none;
 }
+.library-article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--gf-space-lg) 0;
+  overflow-x: auto;
+  display: block;
+}
+.library-article-body table thead {
+  background: var(--gf-color-surface-subtle);
+}
+.library-article-body table th {
+  padding: var(--gf-space-md);
+  text-align: left;
+  font-weight: 600;
+  color: var(--gf-color-accent);
+  border-bottom: 2px solid var(--gf-color-accent);
+}
+.library-article-body table td {
+  padding: var(--gf-space-md);
+  border-bottom: 1px solid var(--gf-color-surface-subtle);
+}
+.library-article-body table tbody tr:hover {
+  background: var(--gf-color-surface-subtle);
+}
+@media (min-width: 768px) {
+  .library-article-body table {
+    display: table;
+  }
+}
 
 /* Blog post markdown body */
 .blog-post-body h2,
