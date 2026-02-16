@@ -69,7 +69,7 @@ export const siteConfig: SiteConfig = {
   // Section index appears in header nav when enabled and inNav !== false.
   contentSections: {
     slam26: { enabled: true, label: "Slam26" },
-    library: { enabled: false, label: "Library" },
+    library: { enabled: true, label: "Library" },
     blog: { enabled: false, label: "Blog" }
   },
 
