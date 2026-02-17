@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { SectionCard } from "../components/SectionCard";
@@ -11,7 +11,21 @@ import {
 } from "../content/library";
 
 export const LibraryPage: React.FC = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedTag = searchParams.get("tag");
   const tags = getAllTags();
+
+  const displayTags = selectedTag === null ? tags : tags.filter((t) => t === selectedTag);
+  const hasFilter = selectedTag !== null && selectedTag !== "";
+
+  const setTagFilter = (tag: string | null) => {
+    if (tag === null) {
+      searchParams.delete("tag");
+    } else {
+      searchParams.set("tag", tag);
+    }
+    setSearchParams(searchParams, { replace: true });
+  };
 
   return (
     <div
@@ -66,12 +80,77 @@ export const LibraryPage: React.FC = () => {
         <p>Error Loading content/library/index.md</p>
       )}
 
-      {tags.length === 0 ? (
+      {tags.length > 0 && (
+        <section
+          style={{
+            marginBottom: "var(--gf-space-xl)"
+          }}
+        >
+          <h2
+            style={{
+              fontSize: "1.125rem",
+              fontWeight: 600,
+              marginBottom: "var(--gf-space-sm)",
+              color: "var(--gf-color-text-subtle)"
+            }}
+          >
+            Filter by tag
+          </h2>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "var(--gf-space-sm)",
+              alignItems: "center"
+            }}
+          >
+            <button
+              type="button"
+              onClick={() => setTagFilter(null)}
+              style={{
+                fontSize: "0.9rem",
+                padding: "0.35rem 0.75rem",
+                borderRadius: "var(--gf-radius-lg)",
+                border: "1px solid var(--gf-color-accent)",
+                backgroundColor: hasFilter ? "transparent" : "var(--gf-color-accent-soft)",
+                color: "var(--gf-color-accent)",
+                cursor: "pointer",
+                fontWeight: hasFilter ? 500 : 600
+              }}
+            >
+              All
+            </button>
+            {tags.map((tag) => (
+              <button
+                key={tag}
+                type="button"
+                onClick={() => setTagFilter(tag)}
+                style={{
+                  fontSize: "0.9rem",
+                  padding: "0.35rem 0.75rem",
+                  borderRadius: "var(--gf-radius-lg)",
+                  border: "1px solid var(--gf-color-accent)",
+                  backgroundColor: selectedTag === tag ? "var(--gf-color-accent-soft)" : "transparent",
+                  color: "var(--gf-color-accent)",
+                  cursor: "pointer",
+                  fontWeight: selectedTag === tag ? 600 : 500
+                }}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {displayTags.length === 0 ? (
         <p style={{ color: "var(--gf-color-text-subtle)" }}>
-          No library articles yet.
+          {tags.length === 0
+            ? "No library articles yet."
+            : "No articles match this filter."}
         </p>
       ) : (
-        tags.map((tag) => (
+        displayTags.map((tag) => (
           <section
             key={tag}
             style={{
