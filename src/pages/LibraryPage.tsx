@@ -87,14 +87,17 @@ export const LibraryPage: React.FC = () => {
       {tags.length > 0 && (
         <section
           style={{
-            marginBottom: "var(--gf-space-xl)"
+            marginBottom: "var(--gf-space-xl)",
+            paddingTop: "var(--gf-space-md)",
+            paddingBottom: "var(--gf-space-md)"
           }}
         >
           <h2
             style={{
               fontSize: "1.125rem",
               fontWeight: 600,
-              marginBottom: "var(--gf-space-sm)",
+              marginTop: 0,
+              marginBottom: "var(--gf-space-md)",
               color: "var(--gf-color-text-subtle)"
             }}
           >
@@ -104,7 +107,7 @@ export const LibraryPage: React.FC = () => {
             style={{
               display: "flex",
               flexWrap: "wrap",
-              gap: "var(--gf-space-sm)",
+              gap: "var(--gf-space-md)",
               alignItems: "center"
             }}
           >
@@ -113,7 +116,7 @@ export const LibraryPage: React.FC = () => {
               onClick={() => setTagFilter(null)}
               style={{
                 fontSize: "0.9rem",
-                padding: "0.35rem 0.75rem",
+                padding: "0.5rem 1rem",
                 borderRadius: "var(--gf-radius-lg)",
                 border: "1px solid var(--gf-color-accent)",
                 backgroundColor: hasFilter ? "transparent" : "var(--gf-color-accent-soft)",
@@ -131,7 +134,7 @@ export const LibraryPage: React.FC = () => {
                 onClick={() => setTagFilter(tag)}
                 style={{
                   fontSize: "0.9rem",
-                  padding: "0.35rem 0.75rem",
+                  padding: "0.5rem 1rem",
                   borderRadius: "var(--gf-radius-lg)",
                   border: "1px solid var(--gf-color-accent)",
                   backgroundColor: selectedTag === tag ? "var(--gf-color-accent-soft)" : "transparent",
