@@ -57,13 +57,6 @@ metadata:
       description: |
         Foundational repository of reusable security controls, capabilities,
         and threat models maintained by FINOS.
-    - id: MITRE-ATT&CK
-      title: MITRE ATT&CK Framework
-      version: "16.0"
-      description: |
-        MITRE ATT&CK® is a globally-accessible knowledge base of adversary
-        tactics and techniques based on real-world observations.
-      url: https://attack.mitre.org/
 ```
 
 ### Step 2: Identify Capabilities
@@ -119,7 +112,6 @@ In this example, the CCC Core threats linked to **CP29** do not cover our concer
 | Title             | Yes      | A clear, concise name describing the threat                                        |
 | Description       | Yes      | A specific explanation of what goes wrong and why it matters                       |
 | Capabilities      | Yes      | Links this threat to the capability(ies) it exploits                               |
-| External Mappings | No       | Optional links to industry standards like MITRE ATT&CK (useful for security teams) |
 
 
 **Example (YAML)**
@@ -140,13 +132,6 @@ threats:
       - reference-id: SEC.SLAM.CM
         entries:
           - reference-id: SEC.SLAM.CM.CAP01
-    external-mappings:
-      - reference-id: MITRE-ATT&CK
-        entries:
-          - reference-id: T1195.002
-            remarks: Compromise Software Supply Chain
-          - reference-id: T1204.003
-            remarks: Malicious Image
 ```
 
 ### Step 4: Validate
@@ -169,16 +154,6 @@ metadata:
       description: |
         Foundational repository of reusable security controls, capabilities,
         and threat models maintained by FINOS.
-    - id: MITRE-ATT&CK
-      title: MITRE ATT&CK Framework
-      version: "16.0"
-      description: |
-        MITRE ATT&CK® is a globally-accessible knowledge base of adversary
-        tactics and techniques based on real-world observations. The ATT&CK
-        knowledge base is used as a foundation for the development of specific
-        threat models and methodologies in the private sector, in government,
-        and in the cybersecurity product and service community.
-      url: https://attack.mitre.org/
 title: Container Management Tool Security Threat Catalog
 imported-capabilities:
   - reference-id: CCC
@@ -206,13 +181,6 @@ threats:
       - reference-id: SEC.SLAM.CM
         entries:
           - reference-id: SEC.SLAM.CM.CAP01
-    external-mappings:
-      - reference-id: MITRE-ATT&CK
-        entries:
-          - reference-id: T1195.002
-            remarks: Compromise Software Supply Chain
-          - reference-id: T1204.003
-            remarks: Malicious Image
 ```
 
 **Validation commands:**
@@ -224,4 +192,4 @@ cue vet -c -d '#ThreatCatalog' github.com/gemaraproj/gemara@latest your-threats.
 
 ## What's Next
 
-Create a Gemara Control Catalog that maps security controls to the identified threats, providing a structured approach to defining mitigations.
+Create a Gemara Control Catalog that maps security controls to the identified threats, providing a structured approach to defining mitigations. See the [Gemara Layer 2 schema documentation](https://gemara.openssf.org/schema/layer-2.html) for the full specification.
