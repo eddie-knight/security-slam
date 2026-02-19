@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { siteConfig } from "../config/site";
+import { siteConfig, type NavLink } from "../config/site";
 
 // Public assets are served at root (see vite publicDir)
 const logoColorUrl = "/logo/logo-color.png";
@@ -8,14 +8,23 @@ const tagScLogoUrl = "/logo/tag_sc_logo-color.png";
 
 export const Header: React.FC = () => {
   const location = useLocation();
+  const [openDropdown, setOpenDropdown] = React.useState<string | null>(null);
 
-  const contentSectionNav = Object.entries(siteConfig.contentSections)
-    .filter(([, config]) => config.enabled && config.inNav !== false)
+  // Get sections handled by custom nav links (to avoid duplicates)
+  const customNavPaths = (siteConfig.customNavLinks ?? []).map(link => link.path);
+
+  const contentSectionNav: NavLink[] = Object.entries(siteConfig.contentSections)
+    .filter(([section, config]) => {
+      const sectionPath = `/${section}`;
+      return config.enabled && config.inNav !== false && !customNavPaths.includes(sectionPath);
+    })
     .map(([section, config]) => ({
       path: `/${section}`,
       label: config.label ?? section
     }));
-  const fullNav = [{ path: "/", label: "Home" }, ...contentSectionNav];
+
+  const customNav = siteConfig.customNavLinks ?? [];
+  const fullNav: NavLink[] = [{ path: "/", label: "Home" }, ...contentSectionNav, ...customNav];
 
   const linkStyle = (path: string): React.CSSProperties => ({
     color: "var(--gf-color-text)",
@@ -120,25 +129,102 @@ export const Header: React.FC = () => {
             justifyContent: "center"
           }}
         >
-          {fullNav.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              style={linkStyle(item.path)}
-              onMouseEnter={(e) => {
-                if (location.pathname !== item.path) {
-                  e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (location.pathname !== item.path) {
-                  e.currentTarget.style.backgroundColor = "transparent";
-                }
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {fullNav.map((item) => {
+            const hasChildren = item.children && item.children.length > 0;
+
+            if (hasChildren) {
+              return (
+                <div
+                  key={item.path}
+                  style={{ position: "relative" }}
+                  onMouseEnter={() => setOpenDropdown(item.path)}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
+                  <button
+                    type="button"
+                    style={{
+                      ...linkStyle(item.path),
+                      border: "none",
+                      background: openDropdown === item.path ? "var(--gf-color-accent-soft)" : "transparent",
+                      cursor: "pointer",
+                      fontSize: "inherit",
+                      fontFamily: "inherit",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.25rem"
+                    }}
+                  >
+                    {item.label}
+                    <span style={{ fontSize: "0.75rem" }}>▼</span>
+                  </button>
+                  {openDropdown === item.path && (
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "100%",
+                        left: 0,
+                        marginTop: "0.25rem",
+                        backgroundColor: "var(--gf-color-surface)",
+                        border: "1px solid var(--gf-color-accent)",
+                        borderRadius: "var(--gf-radius-lg)",
+                        boxShadow: "var(--gf-shadow-surface)",
+                        minWidth: "200px",
+                        zIndex: 1000,
+                        overflow: "hidden"
+                      }}
+                    >
+                      {item.children!.map((child) => (
+                        <Link
+                          key={child.path}
+                          to={child.path}
+                          style={{
+                            display: "block",
+                            padding: "0.75rem 1rem",
+                            color: "var(--gf-color-text)",
+                            textDecoration: "none",
+                            transition: "background-color 0.2s",
+                            backgroundColor: location.pathname === child.path ? "var(--gf-color-accent-soft)" : "transparent"
+                          }}
+                          onMouseEnter={(e) => {
+                            if (location.pathname !== child.path) {
+                              e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            if (location.pathname !== child.path) {
+                              e.currentTarget.style.backgroundColor = "transparent";
+                            }
+                          }}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                style={linkStyle(item.path)}
+                onMouseEnter={(e) => {
+                  if (location.pathname !== item.path) {
+                    e.currentTarget.style.backgroundColor = "var(--gf-color-accent-soft)";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (location.pathname !== item.path) {
+                    e.currentTarget.style.backgroundColor = "transparent";
+                  }
+                }}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
       </section>
     </header>

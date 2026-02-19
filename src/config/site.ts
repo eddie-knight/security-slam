@@ -36,6 +36,12 @@ export type PastSlamReport = {
   description?: string;
 };
 
+export type NavLink = {
+  path: string;
+  label: string;
+  children?: NavLink[];
+};
+
 export type SiteConfig = {
   siteName: string;
   tagline: string;
@@ -45,6 +51,7 @@ export type SiteConfig = {
     links: FooterLink[];
   };
   contentSections: Record<string, ContentSectionConfig>;
+  customNavLinks?: NavLink[];
   contactPages: ContactPageConfig[];
   pastSlamReports: PastSlamReport[];
 };
@@ -69,9 +76,21 @@ export const siteConfig: SiteConfig = {
   // Section index appears in header nav when enabled and inNav !== false.
   contentSections: {
     slam26: { enabled: true, label: "Slam26" },
-    library: { enabled: true, label: "Library" },
+    library: { enabled: true, label: "Library", inNav: false },
     blog: { enabled: false, label: "Blog" }
   },
+
+  customNavLinks: [
+    {
+      path: "/slam26",
+      label: "Slam26",
+      children: [
+        { path: "/slam26", label: "Overview" },
+        { path: "/library", label: "Library" },
+        { path: "/slam26/participating-projects", label: "Participating Projects" }
+      ]
+    }
+  ],
 
   contactPages: [
     {

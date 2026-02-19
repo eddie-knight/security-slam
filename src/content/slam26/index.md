@@ -13,7 +13,7 @@ First, understand that this is not a traditional hackathon, though it shares som
 There are no teams, only shared objectives. There are no presentations, only completion notifications. There are no prizes, only recognitions.
 
 - Individuals who register may contribute in any way they see fit.
-- Maintainers who register within the first week of the event may request to have their project added on the [Contributions Welcome] page.
+- Maintainers who register within the first week of the event may request to have their project added on the [Participating Projects](/slam26/participating-projects) page.
 - Maintainers will submit completion notifications on this site.
 - All participants who are included on a final completion notification will qualify for a digital badge and physical pin issued by our sponsors.
 - Projects who complete all objectives will qualify for a recognition on this site and a physical plaque issued by our sponsors.
@@ -38,7 +38,7 @@ Now based on who you are, your first steps may be different...
 
 For projects to be eligible for recognitions, a maintainer must sign up. A Slam Organizer will reach out shortly thereafter to confirm your registration.
 
-To be eligible forindividual recognitions, you need to personally register and there must be a confirmed registration by the project you're contributing to (Obviously this is two-in-one if you're contributing to a project you maintain).
+To be eligible for individual recognitions, you need to personally register and there must be a confirmed registration by the project you're contributing to (Obviously this is two-in-one if you're contributing to a project you maintain).
 
 You should pause and [Register Now](/slam26/register) if you haven't already.
 
@@ -70,6 +70,6 @@ You can reach out to the pool of Slam Advisors, as well as peers who are current
 
 - **Friday, February 20th:** Event objectives are announced; Slam Library Opens  
 - **Friday, March 20th:** Final scoring submissions closes; Scoring begins  
-- **Thursday, March 26th:** Awards are issued on the KubeCon Project Pavillion Stage
+- **Thursday, March 26th:** Awards are issued on the KubeCon Project Pavilion Stage
 
 [Registration](http://securityslam.com/slam26/register) is open: Sign up to qualify for recognitions!
