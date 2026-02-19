@@ -107,11 +107,12 @@ export const LibraryPage: React.FC = () => {
             </h2>
             <div
               style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "var(--gf-space-lg)",
-                alignItems: "center",
-                justifyContent: "center"
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+                gap: "var(--gf-space-xl)",
+                maxWidth: "1400px",
+                margin: "0 auto",
+                justifyItems: "center"
               }}
             >
               {/* Badge icons */}
@@ -139,14 +140,15 @@ export const LibraryPage: React.FC = () => {
                       src={`/badge-icons/${badge.toLowerCase()}.png`}
                       alt={`${badge} Badge`}
                       style={{
-                        width: "100px",
-                        height: "100px",
+                        width: "100%",
+                        maxWidth: "180px",
+                        height: "auto",
                         objectFit: "contain"
                       }}
                     />
                     <span
                       style={{
-                        fontSize: "0.9rem",
+                        fontSize: "1.1rem",
                         fontWeight: 600,
                         color: "var(--gf-color-text)"
                       }}
@@ -156,125 +158,72 @@ export const LibraryPage: React.FC = () => {
                   </Link>
                 )
               ))}
-
-              {/* Other category circles */}
-              {tags.filter((tag) => !["Defender", "Chronicler", "Cleaner", "Inspector", "Mechanizer"].includes(tag)).map((tag) => (
-                <button
-                  key={tag}
-                  type="button"
-                  onClick={() => setTagFilter(tag)}
-                  style={{
-                    textDecoration: "none",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: "var(--gf-space-sm)",
-                    border: "none",
-                    background: "none",
-                    cursor: "pointer",
-                    transition: "transform 0.2s ease"
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "scale(1.05)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "scale(1)";
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "100px",
-                      height: "100px",
-                      borderRadius: "50%",
-                      backgroundColor: "var(--gf-color-accent-soft)",
-                      border: "2px solid var(--gf-color-accent)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      padding: "var(--gf-space-sm)"
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: "0.85rem",
-                        fontWeight: 600,
-                        color: "var(--gf-color-accent)",
-                        textAlign: "center",
-                        lineHeight: 1.2
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  </div>
-                </button>
-              ))}
             </div>
-          </section>
 
-          {/* Tag Filter Section */}
-          <section
-            style={{
-              marginBottom: "var(--gf-space-xl)",
-              paddingTop: "var(--gf-space-md)",
-              paddingBottom: "var(--gf-space-md)"
-            }}
-          >
-            <h2
-              style={{
-                fontSize: "1.125rem",
-                fontWeight: 600,
-                marginTop: 0,
-                marginBottom: "var(--gf-space-md)",
-                color: "var(--gf-color-text-subtle)"
-              }}
-            >
-              Filter by tag
-            </h2>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "var(--gf-space-md)",
-              alignItems: "center"
-            }}
-          >
-            <button
-              type="button"
-              onClick={() => setTagFilter(null)}
-              style={{
-                fontSize: "0.9rem",
-                padding: "0.5rem 1rem",
-                borderRadius: "var(--gf-radius-lg)",
-                border: "1px solid var(--gf-color-accent)",
-                backgroundColor: hasFilter ? "transparent" : "var(--gf-color-accent-soft)",
-                color: "var(--gf-color-accent)",
-                cursor: "pointer",
-                fontWeight: hasFilter ? 500 : 600
-              }}
-            >
-              All
-            </button>
-            {tags.map((tag) => (
-              <button
-                key={tag}
-                type="button"
-                onClick={() => setTagFilter(tag)}
+            {/* Other category circles - separate container */}
+            {tags.filter((tag) => !["Defender", "Chronicler", "Cleaner", "Inspector", "Mechanizer"].includes(tag)).length > 0 && (
+              <div
                 style={{
-                  fontSize: "0.9rem",
-                  padding: "0.5rem 1rem",
-                  borderRadius: "var(--gf-radius-lg)",
-                  border: "1px solid var(--gf-color-accent)",
-                  backgroundColor: selectedTag === tag ? "var(--gf-color-accent-soft)" : "transparent",
-                  color: "var(--gf-color-accent)",
-                  cursor: "pointer",
-                  fontWeight: selectedTag === tag ? 600 : 500
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "var(--gf-space-lg)",
+                  justifyContent: "center",
+                  marginTop: "var(--gf-space-xl)"
                 }}
               >
-                {tag}
-              </button>
-            ))}
-          </div>
-        </section>
+                {tags.filter((tag) => !["Defender", "Chronicler", "Cleaner", "Inspector", "Mechanizer"].includes(tag)).map((tag) => (
+                  <button
+                    key={tag}
+                    type="button"
+                    onClick={() => setTagFilter(tag)}
+                    style={{
+                      textDecoration: "none",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "var(--gf-space-sm)",
+                      border: "none",
+                      background: "none",
+                      cursor: "pointer",
+                      transition: "transform 0.2s ease"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "scale(1.05)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "scale(1)";
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "120px",
+                        height: "120px",
+                        borderRadius: "50%",
+                        backgroundColor: "var(--gf-color-accent-soft)",
+                        border: "2px solid var(--gf-color-accent)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        padding: "var(--gf-space-sm)"
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontSize: "0.85rem",
+                          fontWeight: 600,
+                          color: "var(--gf-color-accent)",
+                          textAlign: "center",
+                          lineHeight: 1.2
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            )}
+          </section>
         </>
       )}
 
