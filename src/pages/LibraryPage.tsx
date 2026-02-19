@@ -177,34 +177,33 @@ export const LibraryPage: React.FC = () => {
                     type="button"
                     onClick={() => setTagFilter(tag)}
                     style={{
-                      textDecoration: "none",
+                      width: "120px",
+                      height: "120px",
+                      borderRadius: "50%",
+                      backgroundColor: "var(--gf-color-accent-soft)",
+                      border: "2px solid var(--gf-color-accent)",
                       display: "flex",
-                      flexDirection: "column",
                       alignItems: "center",
-                      gap: "var(--gf-space-sm)",
-                      border: "none",
-                      background: "none",
+                      justifyContent: "center",
+                      padding: "var(--gf-space-sm)",
                       cursor: "pointer",
-                      transition: "transform 0.2s ease"
+                      transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                      boxShadow: "0 0 20px rgba(232, 121, 249, 0.4)"
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = "scale(1.05)";
+                      e.currentTarget.style.boxShadow = "0 0 30px rgba(232, 121, 249, 0.8)";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = "scale(1)";
+                      e.currentTarget.style.boxShadow = "0 0 20px rgba(232, 121, 249, 0.4)";
                     }}
                   >
                     <div
                       style={{
-                        width: "120px",
-                        height: "120px",
-                        borderRadius: "50%",
-                        backgroundColor: "var(--gf-color-accent-soft)",
-                        border: "2px solid var(--gf-color-accent)",
                         display: "flex",
                         alignItems: "center",
-                        justifyContent: "center",
-                        padding: "var(--gf-space-sm)"
+                        justifyContent: "center"
                       }}
                     >
                       <span
