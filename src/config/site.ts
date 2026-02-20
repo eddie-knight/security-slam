@@ -42,10 +42,17 @@ export type NavLink = {
   children?: NavLink[];
 };
 
+export type BannerConfig = {
+  enabled: boolean;
+  message: string;
+  storageKey?: string;
+};
+
 export type SiteConfig = {
   siteName: string;
   tagline: string;
   preregistrationUrl?: string;
+  banner?: BannerConfig;
   footer: {
     copyrightText: string;
     links: FooterLink[];
@@ -60,6 +67,12 @@ export const siteConfig: SiteConfig = {
   siteName: "Security Slam",
   tagline: "February 20 – March 20, 2026",
   preregistrationUrl: "",
+
+  banner: {
+    enabled: true,
+    message: "The Security Slam is now live! Slam Library assets are still being uploaded and may be incomplete at this time.",
+    storageKey: "slam26-banner-dismissed"
+  },
 
   footer: {
     copyrightText: "",

@@ -6,7 +6,15 @@ import { siteConfig, type NavLink } from "../config/site";
 const logoColorUrl = "/logo/logo-color.png";
 const tagScLogoUrl = "/logo/tag_sc_logo-color.png";
 
-export const Header: React.FC = () => {
+export interface HeaderProps {
+  showBannerButton?: boolean;
+  onShowBanner?: () => void;
+}
+
+export const Header: React.FC<HeaderProps> = ({
+  showBannerButton = false,
+  onShowBanner
+}) => {
   const location = useLocation();
   const [openDropdown, setOpenDropdown] = React.useState<string | null>(null);
 
@@ -126,7 +134,8 @@ export const Header: React.FC = () => {
             gap: "var(--gf-space-md)",
             alignItems: "center",
             flexWrap: "wrap",
-            justifyContent: "center"
+            justifyContent: "center",
+            position: "relative"
           }}
         >
           {fullNav.map((item) => {
@@ -257,6 +266,57 @@ export const Header: React.FC = () => {
           })}
         </nav>
       </section>
+      {showBannerButton && onShowBanner && (
+        <button
+          type="button"
+          onClick={onShowBanner}
+          aria-label="Show banner"
+          style={{
+            position: "fixed",
+            top: "0.5rem",
+            left: "50%",
+            transform: "translateX(-50%)",
+            background: "rgba(141, 232, 242, 0.3)",
+            border: "none",
+            color: "#000",
+            cursor: "pointer",
+            padding: "0.5rem",
+            fontSize: "1rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            transition: "transform 0.2s ease",
+            outline: "none",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
+            WebkitAppearance: "none",
+            zIndex: 1000,
+            borderRadius: "0 0 8px 8px"
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = "translateX(-50%) scale(1.2)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = "translateX(-50%) scale(1)";
+          }}
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ display: "block" }}
+          >
+            <path
+              d="M5 7.5L10 12.5L15 7.5"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+      )}
     </header>
   );
 };

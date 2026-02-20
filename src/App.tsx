@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { BackgroundArcs } from "./components/BackgroundArcs";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { Banner } from "./components/Banner";
 import { HomePage } from "./pages/HomePage";
 import { ContactPage } from "./pages/ContactPage";
 import { SectionIndexPage } from "./pages/SectionIndexPage";
@@ -17,6 +18,28 @@ import { getSectionItems } from "./content/sections";
 
 export const App: React.FC = () => {
   useTheme();
+
+  const [bannerVisible, setBannerVisible] = useState(false);
+  const bannerStorageKey = siteConfig.banner?.storageKey || "banner-dismissed";
+
+  useEffect(() => {
+    if (siteConfig.banner?.enabled) {
+      const dismissed = localStorage.getItem(bannerStorageKey);
+      if (!dismissed) {
+        setBannerVisible(true);
+      }
+    }
+  }, [bannerStorageKey]);
+
+  const handleBannerDismiss = () => {
+    localStorage.setItem(bannerStorageKey, "true");
+    setBannerVisible(false);
+  };
+
+  const handleBannerShow = () => {
+    localStorage.removeItem(bannerStorageKey);
+    setBannerVisible(true);
+  };
 
   return (
     <AudioProvider>
@@ -35,7 +58,17 @@ export const App: React.FC = () => {
         }}
       >
         <BackgroundArcs />
-        <Header />
+        {siteConfig.banner?.enabled && (
+          <Banner
+            message={siteConfig.banner.message}
+            isVisible={bannerVisible}
+            onDismiss={handleBannerDismiss}
+          />
+        )}
+        <Header
+          showBannerButton={siteConfig.banner?.enabled && !bannerVisible}
+          onShowBanner={handleBannerShow}
+        />
         <main
           className="main-content"
           style={{
