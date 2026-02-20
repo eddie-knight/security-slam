@@ -44,6 +44,21 @@ export const LibraryArticlePage: React.FC = () => {
         </div>
       )}
 
+      {/* Article image for regular articles */}
+      {!isBadgePage && article.image && (
+        <div style={{ textAlign: "center", marginBottom: "var(--gf-space-lg)" }}>
+          <img
+            src={article.image}
+            alt={article.title}
+            style={{
+              maxWidth: "50%",
+              height: "auto",
+              objectFit: "contain"
+            }}
+          />
+        </div>
+      )}
+
       <h1
         style={{
           fontSize: "2.5rem",

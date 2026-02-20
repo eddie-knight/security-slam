@@ -6,6 +6,7 @@ export type LibraryArticle = {
   description?: string;
   tags: string[];
   badge?: string;
+  image?: string;
   body: string;
 };
 
@@ -20,6 +21,7 @@ type Frontmatter = {
   description?: string;
   tags: string[];
   badge?: string;
+  image?: string;
 };
 
 const rawModules = import.meta.glob("./library/**/*.md", {
@@ -50,6 +52,7 @@ const allItems: LibraryArticle[] = Object.entries(rawModules).map(
       description: fm.description,
       tags: Array.isArray(fm.tags) ? fm.tags : [],
       badge: fm.badge,
+      image: fm.image,
       body: content
     };
   }
