@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const BadgeNavigation: React.FC = () => {
-  const badges = ["Inspector", "Chronicler", "Defender", "Cleaner", "Mechanizer"];
+  const badges = ["Mechanizer", "Chronicler", "Defender", "Cleaner", "Inspector"];
 
   return (
     <section
@@ -14,11 +14,8 @@ export const BadgeNavigation: React.FC = () => {
     >
       <h2
         style={{
-          fontSize: "1.25rem",
-          fontWeight: 600,
           marginTop: 0,
           marginBottom: "var(--gf-space-lg)",
-          color: "var(--gf-color-text)"
         }}
       >
         Learn about Each Badge

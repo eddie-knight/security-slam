@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import { markdownComponents } from "../components/markdownComponents";
 import { getLibraryArticle, getArticlesByTag } from "../content/library";
 import { SectionCard } from "../components/SectionCard";
+import { LibraryArticleList } from "../components/LibraryArticleList";
 
 export const LibraryArticlePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -158,6 +159,11 @@ export const LibraryArticlePage: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Explore more articles section */}
+      <div style={{ marginTop: "var(--gf-space-2xl)", paddingTop: "var(--gf-space-xl)", borderTop: "1px solid var(--gf-color-border)" }}>
+        <LibraryArticleList title="Explore More Articles" />
+      </div>
     </article>
   );
 };
