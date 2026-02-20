@@ -3,6 +3,7 @@ title: Meet the Baseline
 description: This Slam is all about the OSPS Baseline, so let's make a quick introduction
 image: /project-logos/baseline.png
 tags: [Getting Started, OSPS Baseline]
+author: Eddie Knight, Sonatype
 ---
 
 Starting in 2022, the Security Slam was tightly coupled to the CNCF's CLOMonitor tooling, which ran a curated subset of OpenSSF Scorecard evaluations and supplemental CNCF-specific checks.

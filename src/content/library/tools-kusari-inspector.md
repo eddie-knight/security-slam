@@ -1,7 +1,8 @@
 ---
 title: "Kusari Inspector"
-description: "Software supply chain security analysis"
-path: "/library/tools-kusari-inspector"
+description: "Automated software supply chain security analysis tooling"
+tags: ["Helpful Tools", "Defender"]
+author: Ben Cotton, Kusari
 ---
 
 [Kusari Inspector](http://kusari.dev/developers) is a software supply chain analysis tool.

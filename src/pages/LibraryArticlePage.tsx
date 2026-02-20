@@ -71,18 +71,6 @@ export const LibraryArticlePage: React.FC = () => {
       >
         {article.title}
       </h1>
-      {article.description && (
-        <p
-          style={{
-            color: "var(--gf-color-text-subtle)",
-            fontSize: "1.1rem",
-            marginBottom: "var(--gf-space-lg)",
-            lineHeight: 1.6
-          }}
-        >
-          {article.description}
-        </p>
-      )}
       {article.author && (
         <p
           style={{
@@ -93,6 +81,18 @@ export const LibraryArticlePage: React.FC = () => {
           }}
         >
           By {article.author}
+        </p>
+      )}
+      {article.description && (
+        <p
+          style={{
+            color: "var(--gf-color-text-subtle)",
+            fontSize: "1.1rem",
+            marginBottom: "var(--gf-space-lg)",
+            lineHeight: 1.6
+          }}
+        >
+          {article.description}
         </p>
       )}
       <div
