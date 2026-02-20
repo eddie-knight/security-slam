@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { SectionCard } from "../components/SectionCard";
 import { BadgeNavigation } from "../components/BadgeNavigation";
+import { AudioPlayer } from "../components/AudioPlayer";
 import { markdownComponents } from "../components/markdownComponents";
 import { siteConfig } from "../config/site";
 import {
@@ -65,6 +66,11 @@ export const SectionIndexPage: React.FC<SectionIndexPageProps> = ({ section }) =
               {indexItem.description}
             </p>
           )}
+          {indexItem.audioUrl && (
+            <div style={{ marginBottom: "var(--gf-space-lg)" }}>
+              <AudioPlayer src={indexItem.audioUrl} label="Narrate Page" />
+            </div>
+          )}
           <div
             className="library-article-body"
             style={{
@@ -74,7 +80,24 @@ export const SectionIndexPage: React.FC<SectionIndexPageProps> = ({ section }) =
               marginBottom: listItems.length > 0 ? "var(--gf-space-2xl)" : 0
             }}
           >
-            <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{indexItem.body}</ReactMarkdown>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                ...markdownComponents,
+                h2: ({ children, ...props }) => {
+                  const headingText = typeof children === 'string' ? children : children?.toString() || '';
+                  const audioUrl = indexItem.sectionAudio?.[headingText];
+                  return (
+                    <h2 {...props} style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "var(--gf-space-sm)" }}>
+                      <span>{children}</span>
+                      {audioUrl && <AudioPlayer src={audioUrl} label="Narrate Section" inline />}
+                    </h2>
+                  );
+                }
+              }}
+            >
+              {indexItem.body}
+            </ReactMarkdown>
           </div>
         </article>
       ) : (

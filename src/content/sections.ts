@@ -13,6 +13,10 @@ export type SectionItem = {
   path?: string;
   /** When set, the section item page renders a HubSpot form (e.g. for registration). */
   hubspot?: SectionItemHubSpot;
+  /** Full page audio narration URL */
+  audioUrl?: string;
+  /** Section audio narration URLs keyed by section header text */
+  sectionAudio?: Record<string, string>;
   body: string;
 };
 
@@ -21,6 +25,8 @@ type Frontmatter = {
   description?: string;
   path?: string;
   hubspot?: SectionItemHubSpot;
+  audioUrl?: string;
+  sectionAudio?: Record<string, string>;
 };
 
 const rawModules = import.meta.glob("./*/**/*.md", {
@@ -60,6 +66,8 @@ for (const [path, raw] of Object.entries(rawModules)) {
     description: fm.description,
     path: fm.path,
     hubspot: fm.hubspot,
+    audioUrl: fm.audioUrl,
+    sectionAudio: fm.sectionAudio,
     body: content
   };
   if (!bySection[section]) bySection[section] = [];

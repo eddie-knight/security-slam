@@ -1,7 +1,14 @@
 ---
 title: "Security Slam 2026"
 path: "/slam26"
-description: "Welcome to Slam26"
+description: "Welcome to Slam26!"
+audioUrl: https://www.dropbox.com/scl/fi/fnvd4eewzzdil0p1jgerj/dev-test-audio.mp3?rlkey=qrs0lxhl5vkokqjqcnspszjte&st=8q2dx8s1&raw=1
+sectionAudio:
+  "Let's get to know the flow": "https://docs.google.com/uc?export=open&id=PLACEHOLDER_SECTION_1"
+  "What are the objectives?": "https://docs.google.com/uc?export=open&id=PLACEHOLDER_SECTION_2"
+  "So where should _you_ begin?": "https://docs.google.com/uc?export=open&id=PLACEHOLDER_SECTION_3"
+  "What if you have questions?": "https://docs.google.com/uc?export=open&id=PLACEHOLDER_SECTION_4"
+  "Key Dates to Remember": "https://docs.google.com/uc?export=open&id=PLACEHOLDER_SECTION_5"
 ---
 
 Whether you're a maintainer, active contributor, interested in making contributions, or simply an end user cheering on the projects you depend on, getting up to speed with the Security Slam is a quick process.
