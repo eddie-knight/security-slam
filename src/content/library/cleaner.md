@@ -28,7 +28,7 @@ The Security Insights specification defines a YAML file that lives in your repos
 3. **Document your baseline progress**: Include fields that map to OSPS Baseline controls you've completed
 4. **Validate**: Use the Security Insights tooling to ensure your YAML is well-formed and complete
 
-If it's not live by the time you're reading this, we'll soon have a Slam Library resource to talk more about Security Insights. Feel free to shot questions out to Slam Advisors if you get hung up in the meantime.
+If it's not live by the time you're reading this, we'll soon have a Slam Library resource to talk more about Security Insights. Feel free to shout questions out to Slam Advisors if you get hung up in the meantime.
 
 ### What to Include
 
