@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -7,12 +7,22 @@ import { ProjectCard } from "../components/ProjectCard";
 import { markdownComponents } from "../components/markdownComponents";
 import {
   getSectionItemBySlug,
-  getSectionItemByPath
+  getSectionItemByPath,
+  type ProjectInfo
 } from "../content/sections";
 
 export interface SectionItemPageProps {
   section: string;
   path?: string;
+}
+
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
 }
 
 export const SectionItemPage: React.FC<SectionItemPageProps> = ({
@@ -25,6 +35,14 @@ export const SectionItemPage: React.FC<SectionItemPageProps> = ({
     : slugParam
       ? getSectionItemBySlug(section, slugParam)
       : undefined;
+
+  const [shuffledProjects, setShuffledProjects] = useState<ProjectInfo[]>([]);
+
+  useEffect(() => {
+    if (item?.projects) {
+      setShuffledProjects(shuffleArray(item.projects));
+    }
+  }, [item]);
 
   if (!item) {
     return <Navigate to={pathProp ? "/" : `/${section}`} replace />;
@@ -62,7 +80,7 @@ export const SectionItemPage: React.FC<SectionItemPageProps> = ({
           {item.description}
         </p>
       )}
-      {item.projects && item.projects.length > 0 && (
+      {shuffledProjects.length > 0 && (
         <div
           style={{
             display: "grid",
@@ -71,7 +89,7 @@ export const SectionItemPage: React.FC<SectionItemPageProps> = ({
             marginBottom: "var(--gf-space-2xl)"
           }}
         >
-          {item.projects.map((project, index) => (
+          {shuffledProjects.map((project, index) => (
             <ProjectCard
               key={index}
               name={project.name}

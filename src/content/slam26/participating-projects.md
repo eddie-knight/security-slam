@@ -5,6 +5,7 @@ description: These projects are currently accepting contributions for Security S
 projects:
   - name: Repository Service for TUF
     advisor: Camila Vilarinho
+    repoUrl: https://github.com/repository-service-tuf/repository-service-tuf
     logoUrl: /project-logos/rstuf.png
   - name: Argo CD
     advisor: Michael Crenshaw
@@ -20,15 +21,15 @@ projects:
     logoUrl: /project-logos/baseline.png
   - name: CloudNativePG
     advisor: Jonathan Gonzalez
-    repourl: https://github.com/cloudnative-pg/cloudnative-pg
+    repoUrl: https://github.com/cloudnative-pg/cloudnative-pg
     logoUrl: /project-logos/cloudnativepg.png
   - name: Capsule
     advisor: Oliver Bähler
-    repourl: https://github.com/projectcapsule/capsule
+    repoUrl: https://github.com/projectcapsule/capsule
     logoUrl: /project-logos/capsule.png
   - name: Security Insights Tooling
     advisor: Eddie Knight
-    repourl: http://github.com/ossf/si-tooling
+    repoUrl: https://github.com/ossf/si-tooling
     logoUrl: /project-logos/security-insights.png
   - name: Argo Helm
     advisor: Jason Meridth
