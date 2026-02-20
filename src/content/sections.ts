@@ -6,6 +6,13 @@ export type SectionItemHubSpot = {
   region: string;
 };
 
+export type ProjectInfo = {
+  name: string;
+  advisor: string;
+  repoUrl: string;
+  logoUrl: string;
+};
+
 export type SectionItem = {
   slug: string;
   title: string;
@@ -17,6 +24,8 @@ export type SectionItem = {
   audioUrl?: string;
   /** Section audio narration URLs keyed by section header text */
   sectionAudio?: Record<string, string>;
+  /** List of participating projects */
+  projects?: ProjectInfo[];
   body: string;
 };
 
@@ -27,6 +36,7 @@ type Frontmatter = {
   hubspot?: SectionItemHubSpot;
   audioUrl?: string;
   sectionAudio?: Record<string, string>;
+  projects?: ProjectInfo[];
 };
 
 const rawModules = import.meta.glob("./*/**/*.md", {
@@ -68,6 +78,7 @@ for (const [path, raw] of Object.entries(rawModules)) {
     hubspot: fm.hubspot,
     audioUrl: fm.audioUrl,
     sectionAudio: fm.sectionAudio,
+    projects: fm.projects,
     body: content
   };
   if (!bySection[section]) bySection[section] = [];

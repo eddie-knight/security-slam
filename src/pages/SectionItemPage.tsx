@@ -3,6 +3,7 @@ import { useParams, Navigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { HubSpotForm } from "../components/HubSpotForm";
+import { ProjectCard } from "../components/ProjectCard";
 import { markdownComponents } from "../components/markdownComponents";
 import {
   getSectionItemBySlug,
@@ -60,6 +61,26 @@ export const SectionItemPage: React.FC<SectionItemPageProps> = ({
         >
           {item.description}
         </p>
+      )}
+      {item.projects && item.projects.length > 0 && (
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            gap: "var(--gf-space-xl)",
+            marginBottom: "var(--gf-space-2xl)"
+          }}
+        >
+          {item.projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              name={project.name}
+              advisor={project.advisor}
+              repoUrl={project.repoUrl}
+              logoUrl={project.logoUrl}
+            />
+          ))}
+        </div>
       )}
       {item.body.trim() && (
         <div
