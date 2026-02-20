@@ -17,6 +17,8 @@ The project was quickly identified as a mechanism for supporting end user confor
 
 You can read more about the intent and outcomes in the [_Frequently Asked Questions_](https://baseline.openssf.org/faq.html) section of the Baseline website.
 
+The website also features an [implementation guide for maintainers](https://baseline.openssf.org/maintainers.html).
+
 The catalog is considered to be a living document, with both requirements and recommendations evolving to incorporate the evolving threat landscape, technical capabilities, and feedback from adopters. The catalog is released with a CalVer (Calendar Versioning) strategy so that you can always tell how recently your version of the catalog was updated.
 
 While automated tools are emerging to evaluate Baseline conformance, they may sometimes be a version or two behind. From the Baseline maintainer's perspective, this isn't a problem: any progress on Baseline conformance is beneficial to a project, and any tools that help accomplish that are encouraged.
