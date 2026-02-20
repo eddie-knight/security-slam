@@ -27,7 +27,7 @@ You can build a beautiful house... but if you don't lay a solid foundation, ever
 
 ## How?
 
-The OSPS Baseline includes several documentation-focused controls. To earn the Chronicler badge, you'll need to complete all of respective to your project's maturity level.
+The OSPS Baseline includes several documentation-focused controls. To earn the Chronicler badge, you'll need to complete all of the requirements respective to your project's maturity level.
 
 If you're at Maturity Level 2 or 3, start with the lower levels and move up.
 
