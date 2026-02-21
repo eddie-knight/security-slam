@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { HubSpotForm } from "../components/HubSpotForm";
@@ -107,10 +107,67 @@ export const SectionItemPage: React.FC<SectionItemPageProps> = ({
             color: "var(--gf-color-text)",
             lineHeight: 1.8,
             fontSize: "1.1rem",
-            marginBottom: item.hubspot ? "var(--gf-space-xl)" : 0
+            marginBottom: section === "library" ? "var(--gf-space-2xl)" : (item.hubspot ? "var(--gf-space-xl)" : 0)
           }}
         >
           <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{item.body}</ReactMarkdown>
+        </div>
+      )}
+      {section === "library" && (
+        <div
+          style={{
+            marginBottom: item.hubspot ? "var(--gf-space-2xl)" : "var(--gf-space-xl)",
+            padding: "var(--gf-space-xl)",
+            backgroundColor: "var(--gf-color-surface)",
+            borderRadius: "var(--gf-radius-xl)",
+            border: "2px solid var(--gf-color-accent)",
+            textAlign: "center"
+          }}
+        >
+          <h3
+            style={{
+              fontSize: "1.5rem",
+              fontWeight: 700,
+              marginBottom: "var(--gf-space-md)",
+              color: "var(--gf-color-accent)"
+            }}
+          >
+            Completed This Badge?
+          </h3>
+          <p
+            style={{
+              color: "var(--gf-color-text-subtle)",
+              marginBottom: "var(--gf-space-lg)",
+              lineHeight: 1.6
+            }}
+          >
+            If you're a project maintainer and you've completed this badge, submit your completion for evaluation.
+          </p>
+          <Link
+            to="/slam26/submit-completion"
+            style={{
+              display: "inline-block",
+              padding: "var(--gf-space-md) var(--gf-space-xl)",
+              backgroundColor: "var(--gf-color-accent)",
+              color: "var(--gf-color-background)",
+              borderRadius: "var(--gf-radius-lg)",
+              fontWeight: 600,
+              fontSize: "1.1rem",
+              textDecoration: "none",
+              transition: "all 0.2s ease",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.boxShadow = "0 6px 12px rgba(0, 0, 0, 0.15)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+            }}
+          >
+            Submit Badge Completion
+          </Link>
         </div>
       )}
       {item.hubspot && (

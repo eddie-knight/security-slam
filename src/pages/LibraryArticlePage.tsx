@@ -119,11 +119,70 @@ export const LibraryArticlePage: React.FC = () => {
           color: "var(--gf-color-text)",
           lineHeight: 1.8,
           fontSize: "1.1rem",
-          marginBottom: isBadgePage ? "var(--gf-space-xl)" : "0"
+          marginBottom: isBadgePage ? "var(--gf-space-2xl)" : "0"
         }}
       >
         <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{article.body}</ReactMarkdown>
       </div>
+
+      {/* Submit completion button for badge pages */}
+      {isBadgePage && (
+        <div
+          style={{
+            marginBottom: "var(--gf-space-2xl)",
+            padding: "var(--gf-space-xl)",
+            backgroundColor: "var(--gf-color-surface)",
+            borderRadius: "var(--gf-radius-xl)",
+            border: "2px solid var(--gf-color-accent)",
+            textAlign: "center"
+          }}
+        >
+          <h3
+            style={{
+              fontSize: "1.5rem",
+              fontWeight: 700,
+              marginBottom: "var(--gf-space-md)",
+              color: "var(--gf-color-accent)"
+            }}
+          >
+            Completed This Badge?
+          </h3>
+          <p
+            style={{
+              color: "var(--gf-color-text-subtle)",
+              marginBottom: "var(--gf-space-lg)",
+              lineHeight: 1.6
+            }}
+          >
+            If you're a project maintainer and you've completed this badge, submit your completion for evaluation.
+          </p>
+          <Link
+            to="/slam26/submit-completion"
+            style={{
+              display: "inline-block",
+              padding: "var(--gf-space-md) var(--gf-space-xl)",
+              backgroundColor: "var(--gf-color-accent)",
+              color: "var(--gf-color-background)",
+              borderRadius: "var(--gf-radius-lg)",
+              fontWeight: 600,
+              fontSize: "1.1rem",
+              textDecoration: "none",
+              transition: "all 0.2s ease",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.boxShadow = "0 6px 12px rgba(0, 0, 0, 0.15)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+            }}
+          >
+            Submit Badge Completion
+          </Link>
+        </div>
+      )}
 
       {/* Display badge articles if this is a badge page, otherwise show explore more articles */}
       {isBadgePage && badgeArticles.length > 0 ? (
