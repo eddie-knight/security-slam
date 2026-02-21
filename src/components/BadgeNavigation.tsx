@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 export const BadgeNavigation: React.FC = () => {
   const badges = [
-    "Inspector",
-    "Chronicler",
     "Cleaner",
+    "Chronicler",
+    "Inspector",
     "Mechanizer",
     "Defender",
   ];
