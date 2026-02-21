@@ -101,7 +101,8 @@ export const siteConfig: SiteConfig = {
         { path: "/slam26", label: "Overview" },
         { path: "/slam26/register", label: "Registration" },
         { path: "/library", label: "Library" },
-        { path: "/slam26/participating-projects", label: "Participating Projects" }
+        { path: "/slam26/participating-projects", label: "Participating Projects" },
+        { path: "/slam26/submit-completion", label: "Submit Completion" }
       ]
     }
   ],
@@ -115,6 +116,16 @@ export const siteConfig: SiteConfig = {
         portalId: "0000000",
         formId: "00000000-0000-0000-0000-000000000000",
         region: "na1"
+      }
+    },
+    {
+      path: "/slam26/submit-completion",
+      title: "Submit Badge Completion",
+      description: "This form is for project maintainers to report completion of Security Slam badges. The form may be submitted multiple times to request personal badges for each contributor to the badge, but it must be submitted at least once per project for the project to be scored. The form should NOT be submitted by anyone other than maintainers, or those results will be automatically ignored. Organizers will reach out to maintainers via email to confirm the submissions near the end of the event.",
+      hubspot: {
+        portalId: "243073831",
+        formId: "5523a8f7-f60e-4ac9-8aed-225b6ebfd304",
+        region: "na2"
       }
     }
   ],
