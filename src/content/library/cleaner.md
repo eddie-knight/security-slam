@@ -9,6 +9,18 @@ badge: "Cleaner"
 
 Complete Security Insights YAML documentation for your project
 
+## Start Here First!
+
+**This is the recommended first badge to complete.** You can create your `SECURITY-INSIGHTS.yml` file with basic project information right now, even if you haven't completed all the various documentation elements yet.
+
+Start with the basics, then continuously add to it as you complete other badges:
+- Create the file with basic project info (complete Cleaner badge)
+- Add documentation links as you create them (Chronicler badge)
+- Add self-assessment references (Inspector badge)
+- Include automated tooling information (Mechanizer badge)
+
+This approach lets you build incrementally rather than waiting until everything else is done.
+
 ## Why?
 
 Machines are fast and cheap, but they need clean, structured data to work with.

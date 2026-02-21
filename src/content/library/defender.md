@@ -23,6 +23,8 @@ The Defender badge lets you go up on a roof and shout about it when you finish.
 
 ## How?
 
+**First, create your Security Insights YAML file** (see the [Cleaner badge](/library/cleaner)) with basic information if you haven't already. This will help you document all the controls you're completing for the Baseline.
+
 The Defender badge is earned by completing the OSPS Baseline Best Practices Badge questionnaire for your project's maturity level, then posting the badge at the top of your README.
 
 ### The Best Practices Badge

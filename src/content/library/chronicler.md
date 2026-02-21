@@ -27,10 +27,12 @@ You can build a beautiful house... but if you don't lay a solid foundation, ever
 
 ## How?
 
+**First, create your Security Insights YAML file** (see the [Cleaner badge](/library/cleaner)) with basic information if you haven't already. You can complete that badge even without all your documentation in place yet.
+
 The OSPS Baseline includes several documentation-focused controls. To earn the Chronicler badge, you'll need to complete all of the requirements respective to your project's maturity level.
 
 If you're at Maturity Level 2 or 3, start with the lower levels and move up.
 
-When you get to working on the Cleaner badge, we'll compile the documentation locations for users to more readily find.
+**As you create each piece of documentation, add its location to your Security Insights YAML file.** This makes it easy for evaluators and end-users to find all your security documentation in one place.
 
 While you're working, remember: A short, accurate doc is infinitely better than a comprehensive document that nobody maintains.

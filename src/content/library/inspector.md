@@ -24,11 +24,15 @@ When you complete a self-assessment, you're not just checking a box. You're buil
 
 ## How?
 
+**First, create your Security Insights YAML file** (see the [Cleaner badge](/library/cleaner)) with basic information if you haven't already.
+
 There are two options for completing this badge. Pick the approach that makes the most sense for your project.
 
 To support the upcoming `v1` release of the Gemara schemas, the completion form for this badge will ask you for a short piece of feedback if you choose Option #2 instead.
 
 If you're a contributor with less than complete understanding of the project you're supporting, you can still help by contributing the wireframe or an initial draft of the assessment content.
+
+**After completing your self-assessment, add the link to your Security Insights YAML file** so evaluators and adopters can easily find it.
 
 ### Option 1: Gemara Threat Assessment
 

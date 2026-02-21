@@ -19,6 +19,8 @@ More importantly, automation makes security sustainable. Manual checks get skipp
 
 ## How?
 
+**First, create your Security Insights YAML file** (see the [Cleaner badge](/library/cleaner)) with basic information if you haven't already. You'll document your automated tooling there.
+
 Two options for automated baseline evaluation:
 
 - **Option 1**: LFX Insights Security & Best Practices Dashboard (recommended)
