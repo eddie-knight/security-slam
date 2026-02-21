@@ -40,6 +40,12 @@ body {
   min-height: 100%;
 }
 
+/* Responsive images: ensure all images fit within their containers */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Theme: glass cards and sections */
 .slam-theme aside,
 .slam-theme [class*="card"] {
