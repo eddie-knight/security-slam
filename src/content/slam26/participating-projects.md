@@ -7,54 +7,67 @@ projects:
     advisor: Camila Vilarinho
     repoUrl: https://github.com/repository-service-tuf/repository-service-tuf
     logoUrl: /project-logos/rstuf.png
+    completed: [cleaner]
   - name: Argo CD
     advisor: Michael Crenshaw
     repoUrl: https://github.com/argoproj/argo-cd
     logoUrl: /project-logos/argo.png
+    completed: [cleaner]
   - name: Privateer
     advisor: Jason Meridth
     repoUrl: https://github.com/privateerproj/privateer
     logoUrl: /project-logos/privateer.png
+    completed: [cleaner]
   - name: OSPS Baseline Scanner for GitHub Repositories
     advisor: Eddie Knight
     repoUrl: https://github.com/ossf/pvtr-github-repo-scanner
     logoUrl: /project-logos/baseline.png
+    completed: [cleaner]
   - name: CloudNativePG
     advisor: Jonathan Gonzalez
     repoUrl: https://github.com/cloudnative-pg/cloudnative-pg
     logoUrl: /project-logos/cloudnativepg.png
+    completed: []
   - name: Capsule
     advisor: Oliver Bähler
     repoUrl: https://github.com/projectcapsule/capsule
     logoUrl: /project-logos/capsule.png
+    completed: []
   - name: Security Insights Tooling
     advisor: Eddie Knight
     repoUrl: https://github.com/ossf/si-tooling
     logoUrl: /project-logos/security-insights.png
+    completed: [cleaner]
   - name: Argo Helm
     advisor: Jason Meridth
     repoUrl: https://github.com/argoproj/argo-helm
     logoUrl: /project-logos/argo.png
+    completed: [cleaner]
   - name: OpenFGA
     advisor: Andres Aguiar
     repoUrl: https://github.com/openfga/openfga
     logoUrl: /project-logos/openfga.png
+    completed: [cleaner]
   - name: Meshery
     advisor: Sangram Rath
     repoUrl: https://github.com/meshery/meshery
     logoUrl: /project-logos/meshery.svg
+    completed: []
   - name: Kyverno
     advisor: Shuting Zhao
     repoUrl: https://github.com/kyverno
     logoUrl: /project-logos/kyverno.png
+    completed: []
   - name: Minder
     advisor: Evan Anderson
     repoUrl: https://github.com/mindersec
     logoUrl: /project-logos/minder.png
+    completed: []
   - name: Kairos
     advisor: Mauro Morales
     repoUrl: https://github.com/kairos-io
     logoUrl: /project-logos/kairos.png
+    completed: []
 ---
 
 Click on any project below to visit their repository and start contributing!

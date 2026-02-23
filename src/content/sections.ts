@@ -11,6 +11,7 @@ export type ProjectInfo = {
   advisor: string;
   repoUrl: string;
   logoUrl: string;
+  completed?: string[];
 };
 
 export type SectionItem = {
