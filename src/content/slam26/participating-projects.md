@@ -43,6 +43,18 @@ projects:
     advisor: Sangram Rath
     repoUrl: https://github.com/meshery/meshery
     logoUrl: /project-logos/meshery.svg
+  - name: Kyverno
+    advisor: Shuting Zhao
+    repoUrl: https://github.com/kyverno
+    logoUrl: /project-logos/kyverno.png
+  - name: Minder
+    advisor: Evan Anderson
+    repoUrl: https://github.com/mindersec
+    logoUrl: /project-logos/minder.png
+  - name: Kairos
+    advisor: Mauro Morales
+    repoUrl: https://github.com/kairos-io
+    logoUrl: /project-logos/kairos.png
 ---
 
 Click on any project below to visit their repository and start contributing!
