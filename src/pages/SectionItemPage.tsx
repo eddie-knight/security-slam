@@ -94,11 +94,11 @@ export const SectionItemPage: React.FC<SectionItemPageProps> = ({
             <div
               style={{
                 display: "inline-flex",
-                backgroundColor: "var(--gf-color-surface)",
-                borderRadius: "var(--gf-radius-lg)",
-                padding: "4px",
-                border: "2px solid var(--gf-color-border-strong)",
-                boxShadow: "var(--gf-shadow-surface)"
+                backgroundColor: "rgba(255, 255, 255, 0.08)",
+                borderRadius: "12px",
+                padding: "6px",
+                border: "1px solid rgba(255, 255, 255, 0.15)",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)"
               }}
             >
               <button
@@ -106,13 +106,13 @@ export const SectionItemPage: React.FC<SectionItemPageProps> = ({
                 style={{
                   padding: "var(--gf-space-md) var(--gf-space-xl)",
                   backgroundColor: !showLeaderboard
-                    ? "var(--gf-color-accent)"
+                    ? "rgba(147, 51, 234, 0.8)"
                     : "transparent",
                   color: !showLeaderboard
-                    ? "var(--gf-color-background)"
+                    ? "#ffffff"
                     : "var(--gf-color-text)",
                   border: "none",
-                  borderRadius: "var(--gf-radius-md)",
+                  borderRadius: "8px",
                   cursor: "pointer",
                   fontWeight: 600,
                   fontSize: "1rem",
@@ -127,13 +127,13 @@ export const SectionItemPage: React.FC<SectionItemPageProps> = ({
                 style={{
                   padding: "var(--gf-space-md) var(--gf-space-xl)",
                   backgroundColor: showLeaderboard
-                    ? "var(--gf-color-accent)"
+                    ? "rgba(147, 51, 234, 0.8)"
                     : "transparent",
                   color: showLeaderboard
-                    ? "var(--gf-color-background)"
+                    ? "#ffffff"
                     : "var(--gf-color-text)",
                   border: "none",
-                  borderRadius: "var(--gf-radius-md)",
+                  borderRadius: "8px",
                   cursor: "pointer",
                   fontWeight: 600,
                   fontSize: "1rem",
