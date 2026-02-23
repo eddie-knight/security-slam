@@ -152,7 +152,7 @@ export const SectionItemPage: React.FC<SectionItemPageProps> = ({
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
                   gap: "var(--gf-space-xl)",
                   marginBottom: "var(--gf-space-2xl)"
                 }}
@@ -175,7 +175,7 @@ export const SectionItemPage: React.FC<SectionItemPageProps> = ({
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
             gap: "var(--gf-space-xl)",
             marginBottom: "var(--gf-space-2xl)"
           }}
