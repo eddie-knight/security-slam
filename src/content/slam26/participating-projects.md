@@ -43,6 +43,10 @@ projects:
     advisor: Sangram Rath
     repoUrl: https://github.com/meshery/meshery
     logoUrl: /project-logos/meshery.svg
+  - name: Minder
+    advisor: Evan Anderson
+    repoURL: https://github.com/mindersec/minder
+    logoURL: /project-logos/minder.png
 ---
 
 Click on any project below to visit their repository and start contributing!
