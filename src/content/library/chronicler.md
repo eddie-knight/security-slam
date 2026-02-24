@@ -33,6 +33,6 @@ The OSPS Baseline includes several [documentation-focused controls](https://base
 
 If you're at Maturity Level 2 or 3, start with the lower levels and move up.
 
-**As you create each piece of documentation, add its location to your Security Insights YAML file.** This makes it easy for evaluators and end-users to find all your security documentation in one place. Here are the different types of [documentation you can have in your insights file](https://github.com/ossf/security-insights/blob/main/spec/schema.md#projectdocumentation).
+**As you create each piece of documentation, add its location to your Security Insights YAML file.** This makes it easy for evaluators and end-users to find all your security documentation in one place. Here are the different types of documentation you can have in your insights file - ([project level](https://github.com/ossf/security-insights/blob/main/spec/schema.md#projectdocumentation), [repository level](https://github.com/ossf/security-insights/blob/main/spec/schema.md#repositorydocumentation)).
 
 While you're working, remember: A short, accurate doc is infinitely better than a comprehensive document that nobody maintains.
