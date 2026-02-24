@@ -60,7 +60,7 @@ projects:
     completed: []
   - name: Minder
     advisor: Evan Anderson
-    repoUrl: https://github.com/mindersec
+    repoUrl: https://github.com/mindersec/minder
     logoUrl: /project-logos/minder.png
     completed: []
   - name: Kairos
