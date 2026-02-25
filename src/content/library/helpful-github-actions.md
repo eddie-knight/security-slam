@@ -5,9 +5,7 @@ description: >-
   and validate security documentation for your
   open source projects.
 tags:
-  - github-actions
-  - automation
-  - security
+  - Helpful Tools
 author: Jason Meridth, Chainguard
 ---
 
