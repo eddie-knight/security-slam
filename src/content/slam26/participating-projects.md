@@ -68,6 +68,11 @@ projects:
     repoUrl: https://github.com/kairos-io
     logoUrl: /project-logos/kairos.png
     completed: []
+  - name: Metal³
+    advisor: Tuomo Tanskanen
+    repoUrl: https://github.com/metal3-io
+    logoUrl: /project-logos/metal3.png
+    completed: []
 ---
 
 Click on any project below to visit their repository and start contributing!
