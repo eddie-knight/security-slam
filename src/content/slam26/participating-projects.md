@@ -12,12 +12,12 @@ projects:
     advisor: Michael Crenshaw
     repoUrl: https://github.com/argoproj/argo-cd
     logoUrl: /project-logos/argo.png
-    completed: [cleaner]
+    completed: []
   - name: Privateer
     advisor: Jason Meridth
     repoUrl: https://github.com/privateerproj/privateer
     logoUrl: /project-logos/privateer.png
-    completed: [cleaner]
+    completed: [cleaner, chronicler, mechanizer]
   - name: OSPS Baseline Scanner for GitHub Repositories
     advisor: Eddie Knight
     repoUrl: https://github.com/ossf/pvtr-github-repo-scanner
@@ -27,7 +27,7 @@ projects:
     advisor: Jonathan Gonzalez
     repoUrl: https://github.com/cloudnative-pg/cloudnative-pg
     logoUrl: /project-logos/cloudnativepg.png
-    completed: []
+    completed: [cleaner, chronicler]
   - name: Capsule
     advisor: Oliver Bähler
     repoUrl: https://github.com/projectcapsule/capsule
@@ -42,12 +42,12 @@ projects:
     advisor: Jason Meridth
     repoUrl: https://github.com/argoproj/argo-helm
     logoUrl: /project-logos/argo.png
-    completed: [cleaner]
+    completed: [claner]
   - name: OpenFGA
     advisor: Andres Aguiar
     repoUrl: https://github.com/openfga/openfga
     logoUrl: /project-logos/openfga.png
-    completed: [cleaner]
+    completed: []
   - name: Meshery
     advisor: Sangram Rath
     repoUrl: https://github.com/meshery/meshery
