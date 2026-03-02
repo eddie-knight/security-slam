@@ -29,10 +29,10 @@ You can build a beautiful house... but if you don't lay a solid foundation, ever
 
 **First, create your Security Insights YAML file** (see the [Cleaner badge](/library/cleaner)) with basic information if you haven't already. You can complete that badge even without all your documentation in place yet.
 
-The OSPS Baseline includes several documentation-focused controls. To earn the Chronicler badge, you'll need to complete all of the requirements respective to your project's maturity level.
+The OSPS Baseline includes several [documentation-focused controls](https://baseline.openssf.org/versions/2026-02-19#documentation). To earn the Chronicler badge, you'll need to complete all of the requirements respective to your project's [maturity level](/library/baseline-levels).
 
 If you're at Maturity Level 2 or 3, start with the lower levels and move up.
 
-**As you create each piece of documentation, add its location to your Security Insights YAML file.** This makes it easy for evaluators and end-users to find all your security documentation in one place.
+**As you create each piece of documentation, add its location to your Security Insights YAML file.** This makes it easy for evaluators and end-users to find all your security documentation in one place. Here are the different types of documentation you can have in your insights file - ([project level](https://github.com/ossf/security-insights/blob/main/spec/schema.md#projectdocumentation), [repository level](https://github.com/ossf/security-insights/blob/main/spec/schema.md#repositorydocumentation)).
 
 While you're working, remember: A short, accurate doc is infinitely better than a comprehensive document that nobody maintains.
