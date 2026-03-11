@@ -2,7 +2,7 @@
 title: Let's Make a Threat Catalog
 description: Come learn with me as I start drafting a new Gemara threat assessment
 tags: [Inspector, Gemara]
-author: Your Name
+author: Eddie Knight
 videoUrl: https://www.dropbox.com/scl/fi/versnlv0rxbfofuj6pibv/Let-s-Make-a-Threat-Catalog.mp4?rlkey=ozrrgnc7gj57b1nq87ggd5bji&st=yar7cpw4&raw=1
 ---
 
