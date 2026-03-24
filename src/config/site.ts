@@ -52,6 +52,7 @@ export type SiteConfig = {
   siteName: string;
   tagline: string;
   preregistrationUrl?: string;
+  participatingProjectsDefaultTab?: "projects" | "leaderboard";
   banner?: BannerConfig;
   footer: {
     copyrightText: string;
@@ -67,6 +68,7 @@ export const siteConfig: SiteConfig = {
   siteName: "Security Slam",
   tagline: "February 20 – March 20, 2026",
   preregistrationUrl: "",
+  participatingProjectsDefaultTab: "leaderboard",
 
   banner: {
     enabled: false,

@@ -1,7 +1,7 @@
 ---
-title: Publicly Participating Projects
+title: 2026 Publicly Participating Projects
 path: /slam26/participating-projects
-description: These projects are currently accepting contributions for Security Slam 2026
+description: These projects participated in Security Slam 2026
 projects:
   - name: Repository Service for TUF
     advisor: Camila Vilarinho
@@ -74,5 +74,3 @@ projects:
     logoUrl: /project-logos/metal3.png
     completed: [cleaner, chronicler]
 ---
-
-Click on any project below to visit their repository and start contributing!

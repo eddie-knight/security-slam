@@ -6,6 +6,7 @@ import { HubSpotForm } from "../components/HubSpotForm";
 import { ProjectCard } from "../components/ProjectCard";
 import { Leaderboard } from "../components/Leaderboard";
 import { markdownComponents } from "../components/markdownComponents";
+import { siteConfig } from "../config/site";
 import {
   getSectionItemBySlug,
   getSectionItemByPath,
@@ -36,9 +37,10 @@ export const SectionItemPage: React.FC<SectionItemPageProps> = ({
     : slugParam
       ? getSectionItemBySlug(section, slugParam)
       : undefined;
+  const defaultToLeaderboard = siteConfig.participatingProjectsDefaultTab === "leaderboard";
 
   const [shuffledProjects, setShuffledProjects] = useState<ProjectInfo[]>([]);
-  const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const [showLeaderboard, setShowLeaderboard] = useState(defaultToLeaderboard);
 
   useEffect(() => {
     if (item?.projects) {

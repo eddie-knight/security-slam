@@ -41,7 +41,7 @@ export const HomePage: React.FC = () => {
           />
           <div style={{ marginTop: "var(--gf-space-lg)", textAlign: "center" }}>
           <Link
-            to="/slam26"
+            to="/slam26/participating-projects"
             style={{
               display: "inline-block",
               padding: "var(--gf-space-md) var(--gf-space-xl)",
@@ -62,7 +62,7 @@ export const HomePage: React.FC = () => {
               e.currentTarget.style.transform = "none";
             }}
           >
-            Dive in to Slam 26
+            View the leaderboard
           </Link>
           </div>
         </div>
