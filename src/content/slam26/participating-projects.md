@@ -17,7 +17,7 @@ projects:
     advisor: Jason Meridth
     repoUrl: https://github.com/privateerproj/privateer
     logoUrl: /project-logos/privateer.png
-    completed: [cleaner, chronicler, mechanizer, inspector]
+    completed: [cleaner, chronicler, mechanizer, inspector, defender]
   - name: OSPS Baseline Scanner for GitHub Repositories
     advisor: Eddie Knight
     repoUrl: https://github.com/ossf/pvtr-github-repo-scanner
@@ -27,7 +27,7 @@ projects:
     advisor: Jonathan Gonzalez
     repoUrl: https://github.com/cloudnative-pg/cloudnative-pg
     logoUrl: /project-logos/cloudnativepg.png
-    completed: [cleaner, chronicler, mechanizer]
+    completed: [cleaner, chronicler, mechanizer, defender, inspector]
   - name: Capsule
     advisor: Oliver Bähler
     repoUrl: https://github.com/projectcapsule/capsule
@@ -52,17 +52,17 @@ projects:
     advisor: Sangram Rath
     repoUrl: https://github.com/meshery/meshery
     logoUrl: /project-logos/meshery.svg
-    completed: [cleaner, chronicler]
+    completed: [cleaner, chronicler, inspector, mechanizer, defender]
   - name: Kyverno
     advisor: Shuting Zhao
     repoUrl: https://github.com/kyverno
     logoUrl: /project-logos/kyverno.png
-    completed: []
+    completed: [cleaner, chronicler, mechanizer, inspector]
   - name: Minder
     advisor: Evan Anderson
     repoUrl: https://github.com/mindersec/minder
     logoUrl: /project-logos/minder.png
-    completed: []
+    completed: [cleaner]
   - name: Kairos
     advisor: Mauro Morales
     repoUrl: https://github.com/kairos-io
