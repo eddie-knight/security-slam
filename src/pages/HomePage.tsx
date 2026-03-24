@@ -5,7 +5,6 @@ import { SectionCard } from "../components/SectionCard";
 import { Carousel } from "../components/Carousel";
 import { LinkCard } from "../components/LinkCard";
 import { LogoBar } from "../components/LogoBar";
-import { BadgeNavigation } from "../components/BadgeNavigation";
 import { siteConfig } from "../config/site";
 import { carouselImages } from "../content/carousel";
 
@@ -69,8 +68,6 @@ export const HomePage: React.FC = () => {
       </div>
 
       <LogoBar />
-
-      <BadgeNavigation />
 
       {siteConfig.pastSlamReports.length > 0 && (
         <section

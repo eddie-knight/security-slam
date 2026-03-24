@@ -72,5 +72,5 @@ projects:
     advisor: Tuomo Tanskanen
     repoUrl: https://github.com/metal3-io
     logoUrl: /project-logos/metal3.png
-    completed: [cleaner, chronicler]
+    completed: [cleaner, chronicler, inspector, defender]
 ---
