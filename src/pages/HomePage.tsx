@@ -33,7 +33,7 @@ export const HomePage: React.FC = () => {
             title="Securing Open Source at the Source"
             paragraphs={[
               "Run by the CNCF Technical Advisory Group for Security & Compliance, the Slam is a month-long community effort with a library of support resources, advisors on Slack, and plaques and badges for participating projects and contributors.",
-               "The 2026 Security Slam is now active! Visit the Slam 26 page to explore the library of resources, connect with advisors, and learn how to participate."
+              "The 2026 Security Slam has now concluded. Visit the Slam 26 page to review outcomes, browse the resource library, and see the final leaderboard."
             ]}
             centered={false}
             maxWidth="700px"
