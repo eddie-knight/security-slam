@@ -21,6 +21,9 @@ export type ContactPageConfig = {
   title: string;
   description?: string;
   hubspot?: HubSpotConfig;
+  /** When true, the form is hidden and formDisabledMessage is shown instead. */
+  formDisabled?: boolean;
+  formDisabledMessage?: string;
 };
 
 export type ContentSectionConfig = {
@@ -124,6 +127,8 @@ export const siteConfig: SiteConfig = {
       path: "/slam26/submit-completion",
       title: "Submit Badge Completion",
       description: "This form is for project maintainers to report completion of Slam26 badges. This may be submitted multiple times to request personal badges for each contributor to the badge. The form should ONLY be submitted by maintainers; other results will be automatically ignored. Organizers will reach out to maintainers via email to confirm the submissions.",
+      formDisabled: true,
+      formDisabledMessage: "The Spring Security Slam has ended and submissions are now closed. New form coming for fall security slam.",
       hubspot: {
         portalId: "243073831",
         formId: "5523a8f7-f60e-4ac9-8aed-225b6ebfd304",
