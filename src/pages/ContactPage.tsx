@@ -55,7 +55,32 @@ export const ContactPage: React.FC = () => {
         )}
       </section>
 
-      {contact.hubspot ? (
+      {contact.formDisabled ? (
+        <section
+          id="form-disabled-notice"
+          style={{
+            padding: "var(--gf-space-xl)",
+            backgroundColor: "var(--gf-color-surface)",
+            borderRadius: "var(--gf-radius-xl)",
+            boxShadow: "var(--gf-shadow-surface)",
+            backdropFilter: "var(--gf-glass-blur)",
+            WebkitBackdropFilter: "var(--gf-glass-blur)",
+            border: "1px solid var(--gf-color-border-strong)",
+            textAlign: "center"
+          }}
+        >
+          <p
+            style={{
+              color: "var(--gf-color-accent)",
+              fontSize: "1.25rem",
+              fontWeight: 600,
+              margin: 0
+            }}
+          >
+            {contact.formDisabledMessage ?? "This form is currently closed."}
+          </p>
+        </section>
+      ) : contact.hubspot ? (
         <section
           id="contact-form"
           style={{
