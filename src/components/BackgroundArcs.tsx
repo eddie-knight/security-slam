@@ -1,5 +1,14 @@
 import React from "react";
 
+// Static, filter-free: feGaussianBlur + a perpetual transform animation forced a
+// full-viewport re-rasterize every frame, which crawls under software rendering.
+// Glow is faked with a wide low-opacity stroke under each arc.
+const arcs = [
+  { d: "M-100,200 Q400,100 1100,500", opacity: 0.5 },
+  { d: "M-100,800 Q500,400 1100,900", opacity: 0.3 },
+  { d: "M200,-100 Q800,500 200,1100", opacity: 0.2 }
+];
+
 export const BackgroundArcs: React.FC = () => {
   return (
     <div
@@ -25,63 +34,16 @@ export const BackgroundArcs: React.FC = () => {
           top: 0,
           left: 0
         }}
+        fill="none"
+        stroke="var(--gf-color-accent, #e879f9)"
       >
-        <defs>
-          <filter id="arc-glow">
-            <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-            <feMerge>
-              <feMergeNode in="coloredBlur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-        <path
-          d="M-100,200 Q400,100 1100,500"
-          className="arc arc-1"
-          fill="none"
-          stroke="var(--gf-color-accent, #e879f9)"
-          strokeWidth="2"
-          filter="url(#arc-glow)"
-          opacity="0.5"
-        />
-        <path
-          d="M-100,800 Q500,400 1100,900"
-          className="arc arc-2"
-          fill="none"
-          stroke="var(--gf-color-accent, #e879f9)"
-          strokeWidth="2"
-          filter="url(#arc-glow)"
-          opacity="0.3"
-        />
-        <path
-          d="M200,-100 Q800,500 200,1100"
-          className="arc arc-3"
-          fill="none"
-          stroke="var(--gf-color-accent, #e879f9)"
-          strokeWidth="2"
-          filter="url(#arc-glow)"
-          opacity="0.2"
-        />
+        {arcs.map(({ d, opacity }) => (
+          <g key={d} opacity={opacity}>
+            <path d={d} strokeWidth="10" opacity="0.25" />
+            <path d={d} strokeWidth="2" />
+          </g>
+        ))}
       </svg>
-      <style>{`
-        .arc {
-          animation: arc-drift 20s infinite alternate ease-in-out;
-        }
-        .arc-2 {
-          animation-delay: -5s;
-        }
-        .arc-3 {
-          animation-delay: -10s;
-        }
-        @keyframes arc-drift {
-          from {
-            transform: translate(-2%, -2%) rotate(-1deg);
-          }
-          to {
-            transform: translate(2%, 2%) rotate(1deg);
-          }
-        }
-      `}</style>
     </div>
   );
 };

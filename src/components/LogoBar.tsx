@@ -45,9 +45,16 @@ export const LogoBar: React.FC = () => {
       animationFrameRef.current = requestAnimationFrame(autoScroll);
     };
 
-    animationFrameRef.current = requestAnimationFrame(autoScroll);
+    // Only tick while the bar is on screen; an always-on rAF loop costs a
+    // layout read + scroll write per frame for the whole visit.
+    const observer = new IntersectionObserver(([entry]) => {
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+      animationFrameRef.current = entry.isIntersecting ? requestAnimationFrame(autoScroll) : null;
+    });
+    observer.observe(container);
 
     return () => {
+      observer.disconnect();
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }

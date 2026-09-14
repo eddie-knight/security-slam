@@ -69,7 +69,7 @@ export type SiteConfig = {
 
 export const siteConfig: SiteConfig = {
   siteName: "Security Slam",
-  tagline: "February 20 – March 20, 2026",
+  tagline: "October 5 – November 6, 2026",
   preregistrationUrl: "",
   participatingProjectsDefaultTab: "leaderboard",
 
@@ -93,24 +93,13 @@ export const siteConfig: SiteConfig = {
   // Index at /<key> (card grid), detail at /<key>/:slug or at item.path from frontmatter.
   // Section index appears in header nav when enabled and inNav !== false.
   contentSections: {
-    slam26: { enabled: true, label: "Slam26" },
+    slam26: { enabled: true, label: "Slam26", inNav: false },
     library: { enabled: true, label: "Library", inNav: false },
     blog: { enabled: false, label: "Blog" }
   },
 
-  customNavLinks: [
-    {
-      path: "/slam26",
-      label: "Slam26",
-      children: [
-        { path: "/slam26", label: "Overview" },
-        { path: "/slam26/register", label: "Registration" },
-        { path: "/library", label: "Library" },
-        { path: "/slam26/participating-projects", label: "Participating Projects" },
-        { path: "/slam26/submit-completion", label: "Submit Completion" }
-      ]
-    }
-  ],
+  // Spring Slam26 pages stay routable but are out of the nav until the fall slam opens.
+  customNavLinks: [],
 
   contactPages: [
     {
@@ -141,6 +130,7 @@ export const siteConfig: SiteConfig = {
     { href: "https://www.cncf.io/reports/security-slam-2023/", label: "Security Slam 2023" },
     { href: "https://www.cncf.io/reports/lightning-round-at-security-slam-2023/", label: "Lightning Round at Security Slam 2023" },
     { href: "https://www.cncf.io/reports/security-slam-north-america-2022/", label: "Security Slam North America 2022" },
-    { href: "https://www.cncf.io/reports/security-slam-2025/", label: "Security Slam 2025" }
+    { href: "https://www.cncf.io/reports/security-slam-2025/", label: "Security Slam 2025" },
+    { href: "https://www.cncf.io/reports/slam26-spring-transparency-report/", label: "Slam26 Spring Transparency Report" }
   ]
 };

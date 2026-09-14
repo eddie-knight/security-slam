@@ -112,7 +112,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     "--gf-font-body": theme.typography.body,
     "--gf-font-mono": theme.typography.mono,
     "--gf-accent-glow": "rgba(232, 121, 249, 0.4)",
-    "--gf-glass-blur": "blur(12px)",
+    "--gf-glass-blur": "none", // backdrop blur re-samples every card per scroll frame; too slow under software rendering
     "--gf-gradient-brand":
       "linear-gradient(180deg, #e879f9, #a855f7, #6366f1, #3730a3)"
   } as React.CSSProperties;

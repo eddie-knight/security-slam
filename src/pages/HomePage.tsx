@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { TextSection } from "../components/TextSection";
 import { SectionCard } from "../components/SectionCard";
 import { Carousel } from "../components/Carousel";
@@ -32,38 +31,12 @@ export const HomePage: React.FC = () => {
             title="Securing Open Source at the Source"
             paragraphs={[
               "Run by the CNCF Technical Advisory Group for Security & Compliance, the Slam is a month-long community effort with a library of support resources, advisors on Slack, and plaques and badges for participating projects and contributors.",
-              "The 2026 Security Slam has now concluded. Visit the Slam 26 page to review outcomes, browse the resource library, and see the final leaderboard."
+              "The next Security Slam runs October 5 – November 6, 2026. Check back soon for registration and event details."
             ]}
             centered={false}
             maxWidth="700px"
             lastParagraphMargin="var(--gf-space-xl)"
           />
-          <div style={{ marginTop: "var(--gf-space-lg)", textAlign: "center" }}>
-          <Link
-            to="/slam26/participating-projects"
-            style={{
-              display: "inline-block",
-              padding: "var(--gf-space-md) var(--gf-space-xl)",
-              background: "linear-gradient(135deg, var(--gf-color-complement) 0%, #29bfc7 50%, #159aa1 100%)",
-              color: "#fff",
-              fontWeight: 600,
-              textDecoration: "none",
-              borderRadius: "var(--gf-radius-lg)",
-              boxShadow: "var(--gf-shadow-surface)",
-              transition: "filter 0.2s, transform 0.2s"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.filter = "brightness(1.1)";
-              e.currentTarget.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.filter = "none";
-              e.currentTarget.style.transform = "none";
-            }}
-          >
-            View the leaderboard
-          </Link>
-          </div>
         </div>
       </div>
 
