@@ -84,7 +84,6 @@ export const siteConfig: SiteConfig = {
     links: [
       { href: "https://contribute.cncf.io/community/tags/security-and-compliance/", label: "CNCF TAG Security & Compliance" },
       { href: "https://openssf.org", label: "OpenSSF" },
-      { href: "https://sonatype.com", label: "Sonatype" },
       { href: "https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/", label: "KubeCon Europe" }
     ]
   },
