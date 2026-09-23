@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { TextSection } from "../components/TextSection";
 import { SectionCard } from "../components/SectionCard";
 import { Carousel } from "../components/Carousel";
@@ -31,7 +32,7 @@ export const HomePage: React.FC = () => {
             title="Securing Open Source at the Source"
             paragraphs={[
               "Run by the CNCF Technical Advisory Group for Security & Compliance, the Slam is a month-long community effort with a library of support resources, advisors on Slack, and plaques and badges for participating projects and contributors.",
-              "The next Security Slam runs October 5 – November 6, 2026. Check back soon for registration and event details."
+              "The next Security Slam runs October 5 – November 6, 2026. Registration is open now."
             ]}
             centered={false}
             maxWidth="700px"
@@ -39,6 +40,43 @@ export const HomePage: React.FC = () => {
           />
         </div>
       </div>
+
+      <section
+        style={{
+          marginBottom: "var(--gf-space-xl)",
+          textAlign: "center"
+        }}
+      >
+        <h2 style={{ marginBottom: "var(--gf-space-md)" }}>Registration is now open</h2>
+        <p
+          style={{
+            color: "var(--gf-color-text-subtle)",
+            fontSize: "1.1rem",
+            marginBottom: "var(--gf-space-lg)",
+            maxWidth: "700px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            lineHeight: 1.7
+          }}
+        >
+          Everyone who registers by October 4 will be able to vote on the project awards.
+        </p>
+        <Link
+          to="/slam26/register"
+          style={{
+            display: "inline-block",
+            padding: "var(--gf-space-md) var(--gf-space-xl)",
+            background: "linear-gradient(135deg, var(--gf-color-complement) 0%, #29bfc7 50%, #159aa1 100%)",
+            color: "#fff",
+            fontWeight: 600,
+            textDecoration: "none",
+            borderRadius: "var(--gf-radius-lg)",
+            boxShadow: "var(--gf-shadow-surface)"
+          }}
+        >
+          Register now
+        </Link>
+      </section>
 
       <LogoBar />
 
